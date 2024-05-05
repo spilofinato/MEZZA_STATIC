@@ -112,10 +112,11 @@ function addItemToCarousel(item, index)
 
         element.appendChild(elementSrc);
         element.classList.add('d-block', 'w-100');
-        element.autoplay = "true";
-        element.loop = "true";
-        element.muted = "true";
-        element.playsinline = "true";
+        element.setAttribute('controls', false);
+        element.setAttribute('loop', true);
+        element.muted = true;
+        element.setAttribute('autoplay', true);
+        element.setAttribute('playsinline', true);
         element.alt = ``;
     }
     else
