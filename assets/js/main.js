@@ -27,13 +27,13 @@ shuffle(aPhrases);
 
 headerh1.innerHTML = aPhrases[0];
 
-const headerh1Width = headerh1.scrollWidth;
+const headerh1Width = headerh1.scrollWidth * 1.03;
 
 shuffle(aPhrases);
 
 footerh1.innerHTML = aPhrases[0];
 
-const footerh1Width = footerh1.scrollWidth;
+const footerh1Width = footerh1.scrollWidth * 1.03;
 
 const root = document.documentElement;
 
