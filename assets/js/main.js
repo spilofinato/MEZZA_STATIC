@@ -54,6 +54,10 @@ aMathRandoms.forEach((item, index) => {
         carouselDiv.classList.add('active');
         counter++;
     }
+    else
+    {
+        element.loading = 'lazy';
+    }
 
     element.draggable = false;
 
