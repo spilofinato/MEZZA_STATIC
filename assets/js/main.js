@@ -1,20 +1,20 @@
 const aPhrases = [
-    // 'BOUNTY MERDA',
-    // 'CERTIFIED PEDOPHILES',
-    // '2014-2024',
-    // 'NIENTE RISSE',
-    // 'BANDITI DAL CARNE E FUOCO',
-    // 'ETERNI SECONDI',
-    // 'FUORI LA MERDA',
-    // 'TÖLSÖ',
-    // 'LA PARTE DELLA TORRE ANCORA IN PIEDI',
-    // 'POLISCALVE MERDA',
+    'BOUNTY MERDA',
+    'CERTIFIED PEDOPHILES',
+    '2014-2024',
+    'NIENTE RISSE',
+    'BANDITI DAL CARNE E FUOCO',
+    'ETERNI SECONDI',
+    'FUORI LA MERDA',
+    'TÖLSÖ',
+    'LA PARTE DELLA TORRE ANCORA IN PIEDI',
+    'POLISCALVE MERDA',
     'NON DICO CHE VINCEREMO MA ALMENO METTEREMO IN DIFFICOLTÀ GLI AVVERSARI',
-    // 'BOUNTY TORRE MERDI MERDA',
-    // 'HO VISTO LA PALLA',
-    // 'ABBIAMO SEGNATO CON LO SCHEMA DI FIFA',
-    // 'POLISCALVE MAMME CALDE',
-    // 'E CHI NON SALTA INSIEME A NOI COS\'È?'
+    'BOUNTY TORRE MERDI MERDA',
+    'HO VISTO LA PALLA',
+    'ABBIAMO SEGNATO CON LO SCHEMA DI FIFA',
+    'POLISCALVE MAMME CALDE',
+    'E CHI NON SALTA INSIEME A NOI COS\'È?'
 ];
 
 const headerh1 = document.querySelector('.header h1');
@@ -42,13 +42,13 @@ window.onload = function() {
 
     headerh1.innerHTML = aPhrases[0];
 
-    const headerh1Width = headerh1.getBoundingClientRect().width + 50;
+    const headerh1Width = headerh1.getBoundingClientRect().width + 150;
 
     shuffle(aPhrases);
 
     footerh1.innerHTML = aPhrases[0];
 
-    const footerh1Width = footerh1.getBoundingClientRect().width + 50;
+    const footerh1Width = footerh1.getBoundingClientRect().width + 150;
 
     const root = document.documentElement;
 
