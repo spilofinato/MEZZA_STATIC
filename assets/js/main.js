@@ -1,7 +1,5 @@
 const path = 'images/';
 
-// Images
-
 const carouselInner = document.querySelector('.carousel-inner');
 
 let aMathRandoms = [];
@@ -10,14 +8,22 @@ for (let i = 1; i <= 64; i++) {
     aMathRandoms.push(i);
 }
 
-aMathRandoms.sort(() => Math.random() - 0.5);
+shuffle(aMathRandoms);
 
-counter = 0;
+let counter = 0;
 
-aMathRandoms.forEach((item, index) => {
+window.onload = function() {
+    aMathRandoms.forEach((item, index) => {
+        setTimeout(() => {
+            addItemToCarousel(item, index);
+        }, 500 * index);
+    });    
+}
 
+function addItemToCarousel(item, index)
+{
     let element;
-
+    
     let bVideo = false;
 
     if(item >= 60)
@@ -49,10 +55,9 @@ aMathRandoms.forEach((item, index) => {
         element.alt = ``;
     }
     
-    if(counter == 0)
+    if(index == 0)
     {
         carouselDiv.classList.add('active');
-        counter++;
     }
     else
     {
@@ -63,5 +68,44 @@ aMathRandoms.forEach((item, index) => {
 
     carouselDiv.appendChild(element);
 
+    console.log(`Item ${item} added to carousel`);
+
     carouselInner.appendChild(carouselDiv);
-});
+}
+
+function shuffle(array)
+{
+    let currentIndex = array.length;
+
+    while (currentIndex != 0)
+    {    
+        let randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+}
+
+const aPhrases = [
+    'BOUNTY MERDA',
+    'CERTIFIED PEDOPHILES',
+    '2014-2024',
+    'NIENTE RISSE',
+    'BANDITI DAL CARNE E FUOCO',
+    'ETERNI SECONDI',
+    'FUORI LA MERDA',
+    'TÖLSÖ',
+    'LA PARTE DELLA TORRE ANCORA IN PIEDI'
+];
+
+const headerh1 = document.querySelector('.header h1');
+
+shuffle(aPhrases);
+
+headerh1.innerHTML = aPhrases[0];
+
+const footerh1 = document.querySelector('.footer h1');
+
+shuffle(aPhrases);
+
+footerh1.innerHTML = aPhrases[0];
