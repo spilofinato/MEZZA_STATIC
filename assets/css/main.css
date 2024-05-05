@@ -130,19 +130,19 @@ h1 {
 
 @keyframes textScrollRTL {
     0% {
-        transform: translateX(100svw);
+        transform: translateX(150svw);
     }
     100% {
-        transform: translateX(-100svw);
+        transform: translateX(-150svw);
     }
 }
 
 @keyframes textScrollLTR {
     0% {
-        transform: translateX(-100svw);
+        transform: translateX(-150svw);
     }
     100% {
-        transform: translateX(100svw);
+        transform: translateX(150svw);
     }
 }
 
