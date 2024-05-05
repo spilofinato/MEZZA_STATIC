@@ -28,8 +28,6 @@ body {
 :root {
     --font-size: calc(6.5svh);
     --margin-top: calc(1.5svh);
-    --footerh1-size: 150svw;
-    --headerh1-size: 150svw;
 }
 
 @media (max-width: 768px) {
@@ -90,7 +88,7 @@ body {
     height: 10%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     background-color: black;
     overflow: hidden !important;
@@ -101,7 +99,7 @@ body {
     height: 10%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     background-color: black;
     overflow: hidden !important;
@@ -120,32 +118,6 @@ h1 {
     max-height: 10svh;
     height: fit-content;
     user-select: none;
-}
-
-.header h1 {
-    animation: textScrollRTL 10s linear infinite;
-}
-
-.footer h1 {
-    animation: textScrollLTR 10s linear infinite;
-}
-
-@keyframes textScrollRTL {
-    0% {
-        transform: translateX(calc(var(--headerh1-size)));
-    }
-    100% {
-        transform: translateX(calc(-1 * (var(--headerh1-size))));
-    }
-}
-
-@keyframes textScrollLTR {
-    0% {
-        transform: translateX(calc(-1 * var(--footerh1-size)));
-    }
-    100% {
-        transform: translateX(calc(var(--footerh1-size)));
-    }
 }
 
 .logo {

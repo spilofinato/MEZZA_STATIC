@@ -27,20 +27,31 @@ shuffle(aPhrases);
 
 headerh1.innerHTML = aPhrases[0];
 
-const headerh1Width = headerh1.scrollWidth + viewportWidth;
+const headerh1Width = headerh1.scrollWidth;
 
 shuffle(aPhrases);
 
 footerh1.innerHTML = aPhrases[0];
 
-const footerh1Width = footerh1.scrollWidth + viewportWidth;
-
-console.log(viewportWidth, headerh1Width, footerh1Width);
+const footerh1Width = footerh1.scrollWidth;
 
 const root = document.documentElement;
 
-root.style.setProperty('--footerh1Width', `${footerh1Width}px`);
-root.style.setProperty('--headerh1Width', `${headerh1Width}px`);
+headerh1.animate([
+    { transform: `translateX(${viewportWidth}px)` },
+    { transform: `translateX(-${headerh1Width}px)` }
+], {
+    duration: 10000,
+    iterations: Infinity
+});
+
+footerh1.animate([
+    { transform: `translateX(-${footerh1Width}px)` },
+    { transform: `translateX(${viewportWidth}px)` }
+], {
+    duration: 10000,
+    iterations: Infinity
+});
 
 const path = 'images/';
 
