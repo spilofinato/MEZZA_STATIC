@@ -44,7 +44,7 @@ window.onload = function() {
 
     let headerh1Width = headerh1.getBoundingClientRect().width + 50;
 
-    if(headerh1Width > 2000)
+    if(headerh1Width > 1000)
     {
         headerh1Width = headerh1Width + 100;
     }
@@ -55,7 +55,7 @@ window.onload = function() {
 
     let footerh1Width = footerh1.getBoundingClientRect().width + 50;
 
-    if(footerh1Width > 2000)
+    if(footerh1Width > 1000)
     {
         footerh1Width = footerh1Width + 100;
     }
