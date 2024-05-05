@@ -1,10 +1,54 @@
+const aPhrases = [
+    'BOUNTY MERDA',
+    'CERTIFIED PEDOPHILES',
+    '2014-2024',
+    'NIENTE RISSE',
+    'BANDITI DAL CARNE E FUOCO',
+    'ETERNI SECONDI',
+    'FUORI LA MERDA',
+    'TÖLSÖ',
+    'LA PARTE DELLA TORRE ANCORA IN PIEDI',
+    'POLISCALVE MERDA',
+    'NON DICO CHE VINCEREMO MA ALMENO METTEREMO IN DIFFICOLTÀ GLI AVVERSARI',
+    'BOUNTY TORRE MERDI MERDA',
+    'HO VISTO LA PALLA',
+    'ABBIAMO SEGNATO CON LO SCHEMA DI FIFA',
+    'POLISCALVE MAMME CALDE',
+    'E CHI NON SALTA INSIEME A NOI COS\'È?'
+];
+
+const headerh1 = document.querySelector('.header h1');
+
+const footerh1 = document.querySelector('.footer h1');
+
+const viewportWidth = window.innerWidth;
+
+shuffle(aPhrases);
+
+headerh1.innerHTML = aPhrases[0];
+
+const headerh1Width = headerh1.scrollWidth + viewportWidth;
+
+shuffle(aPhrases);
+
+footerh1.innerHTML = aPhrases[0];
+
+const footerh1Width = footerh1.scrollWidth + viewportWidth;
+
+console.log(viewportWidth, headerh1Width, footerh1Width);
+
+const root = document.documentElement;
+
+root.style.setProperty('--footerh1Width', `${footerh1Width}px`);
+root.style.setProperty('--headerh1Width', `${headerh1Width}px`);
+
 const path = 'images/';
 
 const carouselInner = document.querySelector('.carousel-inner');
 
 let aMathRandoms = [];
 
-for (let i = 0; i <= 64; i++) {
+for (let i = 1; i <= 64; i++) {
     aMathRandoms.push(i);
 }
 
@@ -17,7 +61,7 @@ window.onload = function() {
         setTimeout(() => {
             addItemToCarousel(item, index);
         }, 500 * index);
-    });    
+    });
 }
 
 function addItemToCarousel(item, index)
@@ -74,8 +118,6 @@ function addItemToCarousel(item, index)
 
     carouselDiv.appendChild(element);
 
-    console.log(`Item ${item} added to carousel`);
-
     carouselInner.appendChild(carouselDiv);
 }
 
@@ -91,27 +133,3 @@ function shuffle(array)
         [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
 }
-
-const aPhrases = [
-    'BOUNTY MERDA',
-    'CERTIFIED PEDOPHILES',
-    '2014-2024',
-    'NIENTE RISSE',
-    'BANDITI DAL CARNE E FUOCO',
-    'ETERNI SECONDI',
-    'FUORI LA MERDA',
-    'TÖLSÖ',
-    'LA PARTE DELLA TORRE ANCORA IN PIEDI'
-];
-
-const headerh1 = document.querySelector('.header h1');
-
-shuffle(aPhrases);
-
-headerh1.innerHTML = aPhrases[0];
-
-const footerh1 = document.querySelector('.footer h1');
-
-shuffle(aPhrases);
-
-footerh1.innerHTML = aPhrases[0];
