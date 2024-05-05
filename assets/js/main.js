@@ -27,7 +27,7 @@ const carouselInner = document.querySelector('.carousel-inner');
 
 let aMathRandoms = [];
 
-for (let i = 60; i <= 64; i++) {
+for (let i = 1; i <= 64; i++) {
     aMathRandoms.push(i);
 }
 
