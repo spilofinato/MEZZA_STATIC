@@ -4,7 +4,7 @@ const carouselInner = document.querySelector('.carousel-inner');
 
 let aMathRandoms = [];
 
-for (let i = 1; i <= 64; i++) {
+for (let i = 60; i <= 64; i++) {
     aMathRandoms.push(i);
 }
 
@@ -23,6 +23,7 @@ window.onload = function() {
 function addItemToCarousel(item, index)
 {
     let element;
+    let elementSrc;
     
     let bVideo = false;
 
@@ -39,12 +40,17 @@ function addItemToCarousel(item, index)
     if(bVideo)
     {
         element = document.createElement('video');
-        element.src = `${path}image${item}.mp4`;
+
+        elementSrc = document.createElement('source');
+        elementSrc.src = `${path}image${item}.mp4`;
+        elementSrc.type = "video/mp4";
+
+        element.appendChild(elementSrc);
         element.classList.add('d-block', 'w-100');
-        element.autoplay = true;
-        element.loop = true;
-        element.muted = true;
-        element.playsinline = true;
+        element.autoplay = "true";
+        element.loop = "true";
+        element.muted = "true";
+        element.playsinline = "true";
         element.alt = ``;
     }
     else
