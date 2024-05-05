@@ -14,7 +14,8 @@ const aPhrases = [
     'HO VISTO LA PALLA',
     'ABBIAMO SEGNATO CON LO SCHEMA DI FIFA',
     'POLISCALVE MAMME CALDE',
-    'E CHI NON SALTA INSIEME A NOI COS\'È?'
+    'E CHI NON SALTA INSIEME A NOI COS\'È?',
+    '🐺💪🏻'
 ];
 
 const headerh1 = document.querySelector('.header h1');
