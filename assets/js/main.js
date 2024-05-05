@@ -1,57 +1,25 @@
 const aPhrases = [
-    'BOUNTY MERDA',
-    'CERTIFIED PEDOPHILES',
-    '2014-2024',
-    'NIENTE RISSE',
-    'BANDITI DAL CARNE E FUOCO',
-    'ETERNI SECONDI',
-    'FUORI LA MERDA',
-    'TÖLSÖ',
-    'LA PARTE DELLA TORRE ANCORA IN PIEDI',
-    'POLISCALVE MERDA',
+    // 'BOUNTY MERDA',
+    // 'CERTIFIED PEDOPHILES',
+    // '2014-2024',
+    // 'NIENTE RISSE',
+    // 'BANDITI DAL CARNE E FUOCO',
+    // 'ETERNI SECONDI',
+    // 'FUORI LA MERDA',
+    // 'TÖLSÖ',
+    // 'LA PARTE DELLA TORRE ANCORA IN PIEDI',
+    // 'POLISCALVE MERDA',
     'NON DICO CHE VINCEREMO MA ALMENO METTEREMO IN DIFFICOLTÀ GLI AVVERSARI',
-    'BOUNTY TORRE MERDI MERDA',
-    'HO VISTO LA PALLA',
-    'ABBIAMO SEGNATO CON LO SCHEMA DI FIFA',
-    'POLISCALVE MAMME CALDE',
-    'E CHI NON SALTA INSIEME A NOI COS\'È?'
+    // 'BOUNTY TORRE MERDI MERDA',
+    // 'HO VISTO LA PALLA',
+    // 'ABBIAMO SEGNATO CON LO SCHEMA DI FIFA',
+    // 'POLISCALVE MAMME CALDE',
+    // 'E CHI NON SALTA INSIEME A NOI COS\'È?'
 ];
 
 const headerh1 = document.querySelector('.header h1');
 
 const footerh1 = document.querySelector('.footer h1');
-
-const viewportWidth = window.innerWidth;
-
-shuffle(aPhrases);
-
-headerh1.innerHTML = aPhrases[0];
-
-const headerh1Width = headerh1.getBoundingClientRect().width + 50;
-
-shuffle(aPhrases);
-
-footerh1.innerHTML = aPhrases[0];
-
-const footerh1Width = footerh1.getBoundingClientRect().width + 50;
-
-const root = document.documentElement;
-
-headerh1.animate([
-    { transform: `translateX(${viewportWidth}px)` },
-    { transform: `translateX(-${headerh1Width}px)` }
-], {
-    duration: 10000,
-    iterations: Infinity
-});
-
-footerh1.animate([
-    { transform: `translateX(-${footerh1Width}px)` },
-    { transform: `translateX(${viewportWidth}px)` }
-], {
-    duration: 10000,
-    iterations: Infinity
-});
 
 const path = 'images/';
 
@@ -68,6 +36,38 @@ shuffle(aMathRandoms);
 let counter = 0;
 
 window.onload = function() {
+    const viewportWidth = window.innerWidth;
+
+    shuffle(aPhrases);
+
+    headerh1.innerHTML = aPhrases[0];
+
+    const headerh1Width = headerh1.getBoundingClientRect().width + 50;
+
+    shuffle(aPhrases);
+
+    footerh1.innerHTML = aPhrases[0];
+
+    const footerh1Width = footerh1.getBoundingClientRect().width + 50;
+
+    const root = document.documentElement;
+
+    headerh1.animate([
+        { transform: `translateX(${viewportWidth}px)` },
+        { transform: `translateX(-${headerh1Width}px)` }
+    ], {
+        duration: 10000,
+        iterations: Infinity
+    });
+
+    footerh1.animate([
+        { transform: `translateX(-${footerh1Width}px)` },
+        { transform: `translateX(${viewportWidth}px)` }
+    ], {
+        duration: 10000,
+        iterations: Infinity
+    });
+
     aMathRandoms.forEach((item, index) => {
         setTimeout(() => {
             addItemToCarousel(item, index);
