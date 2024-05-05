@@ -42,13 +42,23 @@ window.onload = function() {
 
     headerh1.innerHTML = aPhrases[0];
 
-    const headerh1Width = headerh1.getBoundingClientRect().width + 150;
+    let headerh1Width = headerh1.getBoundingClientRect().width + 50;
+
+    if(headerh1Width > 2000)
+    {
+        headerh1Width = headerh1Width + 100;
+    }
 
     shuffle(aPhrases);
 
     footerh1.innerHTML = aPhrases[0];
 
-    const footerh1Width = footerh1.getBoundingClientRect().width + 150;
+    let footerh1Width = footerh1.getBoundingClientRect().width + 50;
+
+    if(footerh1Width > 2000)
+    {
+        footerh1Width = footerh1Width + 100;
+    }
 
     const root = document.documentElement;
 
