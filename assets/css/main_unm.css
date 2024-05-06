@@ -6,7 +6,7 @@
 body {
     width: 100svw;
     height: 100svh;
-    background-color: #cc6699;
+    background-color: #df81b3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,7 +106,7 @@ body {
 }
 
 h1 {
-    color: #cc6699;
+    color: #df81b3;
     font-size: var(--font-size) !important;
     margin-top: var(--margin-top) !important;
     margin-bottom: auto;
@@ -127,7 +127,7 @@ h1 {
     left: 0px;
     top: 0px;
     z-index: 9999;
-    fill: #cc6699;
+    fill: #df81b3;
     -webkit-animation: moveX var(--logo-animation-duration1) linear 0s infinite alternate, moveY var(--logo-animation-duration2) linear 0s infinite alternate;
     -moz-animation: moveX var(--logo-animation-duration1) linear 0s infinite alternate, moveY var(--logo-animation-duration2) linear 0s infinite alternate;
     -o-animation: moveX var(--logo-animation-duration1) linear 0s infinite alternate, moveY var(--logo-animation-duration2) linear 0s infinite alternate;
