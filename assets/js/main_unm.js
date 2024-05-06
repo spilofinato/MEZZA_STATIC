@@ -132,10 +132,6 @@ function addItemToCarousel(item, index)
     {
         carouselDiv.classList.add('active');
     }
-    else
-    {
-        element.loading = 'lazy';
-    }
 
     element.draggable = false;
 
