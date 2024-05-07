@@ -308,3 +308,7 @@ body[data-nav="true"] > nav > .nav-links {
 .gallery > .col > .gallery-item > img {
     border-radius: 1rem !important;
 }
+
+.gallery > .col > .gallery-item > video {
+    border-radius: 1rem !important;
+}
