@@ -200,7 +200,7 @@ h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -50%);
     color: #df81b3;
     mix-blend-mode: difference;
     opacity: 0;
