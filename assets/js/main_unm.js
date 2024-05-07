@@ -24,7 +24,21 @@ const footerh1 = document.querySelector('.footer h1');
 
 const path = 'images/';
 
+const viewportWidth = window.innerWidth;
+
 const carouselInner = document.querySelector('.carousel-inner');
+const gallery = document.querySelector('.gallery');
+
+let aGalleryColumns = [];
+
+if(gallery)
+{
+    let galleryColumn1 = gallery.firstElementChild;
+    let galleryColumn2 = gallery.firstElementChild.nextElementSibling;
+    let galleryColumn3 = gallery.lastElementChild;
+    
+    aGalleryColumns = [galleryColumn1, galleryColumn2, galleryColumn3];
+}
 
 let aMathRandoms = [];
 
@@ -35,9 +49,9 @@ for (let i = 1; i <= 64; i++) {
 shuffle(aMathRandoms);
 
 let counter = 0;
+let galleryCounter = 0;
 
 window.onload = function() {
-    const viewportWidth = window.innerWidth;
 
     shuffle(aPhrases);
 
@@ -61,8 +75,6 @@ window.onload = function() {
         footerh1Width = footerh1Width + 100;
     }
 
-    const root = document.documentElement;
-
     headerh1.animate([
         { transform: `translateX(${viewportWidth}px)` },
         { transform: `translateX(-${headerh1Width}px)` }
@@ -79,11 +91,22 @@ window.onload = function() {
         iterations: Infinity
     });
 
-    aMathRandoms.forEach((item, index) => {
-        setTimeout(() => {
-            addItemToCarousel(item, index);
-        }, 500 * index);
-    });
+    if(carouselInner)
+    {
+        aMathRandoms.forEach((item, index) => {
+            setTimeout(() => {
+                addItemToCarousel(item, index);
+            }, 500 * index);
+        });
+    }
+    else
+    {
+        aMathRandoms.forEach((item, index) => {
+            setTimeout(() => {
+                addItemToCarousel(item, index);
+            }, 100 * index);
+        });
+    }
 }
 
 function addItemToCarousel(item, index)
@@ -100,17 +123,15 @@ function addItemToCarousel(item, index)
 
     item = item.toString().padStart(5, '0');
 
-    let carouselDiv = document.createElement('div');
-    carouselDiv.classList.add('carousel-item');
-
+    
     if(bVideo)
     {
         element = document.createElement('video');
-
+        
         elementSrc = document.createElement('source');
         elementSrc.src = `${path}image${item}.mp4`;
         elementSrc.type = "video/mp4";
-
+        
         element.appendChild(elementSrc);
         element.classList.add('d-block', 'w-100');
         element.setAttribute('controls', false);
@@ -127,17 +148,43 @@ function addItemToCarousel(item, index)
         element.classList.add('d-block', 'w-100');
         element.alt = ``;
     }
-    
-    if(index == 0)
-    {
-        carouselDiv.classList.add('active');
-    }
 
     element.draggable = false;
+    
+    if(carouselInner)
+    {
+        let carouselDiv = document.createElement('div');
+        carouselDiv.classList.add('carousel-item');
+        
+        if(index == 0)
+        {
+            carouselDiv.classList.add('active');
+        }
+    
+        element.draggable = false;
+    
+        carouselDiv.appendChild(element);
+    
+        carouselInner.appendChild(carouselDiv);
+    }
+    else
+    {
+        element.classList.remove('d-block', 'w-100');
+        element.classList.add('img-fluid');
 
-    carouselDiv.appendChild(element);
+        let elementDiv = document.createElement('div');
+        elementDiv.classList.add('gallery-item');
+        elementDiv.appendChild(element);
 
-    carouselInner.appendChild(carouselDiv);
+        aGalleryColumns[galleryCounter].appendChild(elementDiv);
+
+        galleryCounter++;
+
+        if(galleryCounter == 3)
+        {
+            galleryCounter = 0;
+        }
+    }
 }
 
 function shuffle(array)
@@ -152,3 +199,9 @@ function shuffle(array)
         [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
 }
+
+const eNavToggle = document.querySelector('.nav-toggle');
+
+eNavToggle.addEventListener('click', () => {
+    document.body.dataset.nav = document.body.dataset.nav === 'true' ? 'false' : 'true';
+});
