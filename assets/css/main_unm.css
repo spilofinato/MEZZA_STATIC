@@ -182,7 +182,6 @@ h1 {
     border-radius: 5rem;
     border: none;
     outline: none;
-    box-shadow: 0rem 0rem 4rem rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform, background-color;
     transition-timing-function: ease;
