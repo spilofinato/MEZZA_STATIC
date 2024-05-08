@@ -150,6 +150,11 @@ main {
     height: fit-content;
     user-select: none;
     animation: textRightToLeft 10s linear infinite;
+    -webkit-animation: textRightToLeft 10s linear infinite;
+    -moz-animation: textRightToLeft 10s linear infinite;
+    -o-animation: textRightToLeft 10s linear infinite;
+    -ms-animation: textRightToLeft 10s linear infinite;
+
 }
 
 @keyframes textRightToLeft {
@@ -158,7 +163,6 @@ main {
         -moz-transform: translateX(100vw);
         -ms-transform: translateX(100vw);
         -webkit-transform: translateX(100vw);
-        -moz-transform: translateX(100vw);
         -o-transform: translateX(100vw);
     }
     to {
@@ -166,7 +170,6 @@ main {
         -moz-transform: translateX(-100%);
         -ms-transform: translateX(-100%);
         -webkit-transform: translateX(-100%);
-        -moz-transform: translateX(-100%);
         -o-transform: translateX(-100%);
     }
 }
