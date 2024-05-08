@@ -3,6 +3,12 @@
     src: url('../fonts/AcuminVariableConcept.otf') format('opentype');
 }
 
+html {
+    scroll-behavior: smooth;
+    overflow: hidden !important;
+    background-color: #df81b3 !important;
+}
+
 body {
     width: 100svw;
     height: 100svh;
@@ -16,22 +22,36 @@ body {
 }
 
 main {
-    width: 100%;
-    height: 100%;
+    width: 100svw;
+    height: 100svh;
     display: block;
     overflow: hidden !important;
     transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     z-index: 5;
     background-color: #df81b3;
+    position: relative;
 }
 
-.container {
-    width: 100%;
-    height: 80%;
+.content {
+    width: 100lvw;
+    height: 90svh;
+    top: 0;
+    left: 0;
+    margin-top: 10svh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden !important;
+    position: absolute;
+    transition: transform 0.5s ease-in-out;
+}
+
+.content[data-active="false"] {
+    transform: translateX(100lvw);
+}
+
+.content[data-active="almost"] {
+    transform: translateX(-100lvw);
 }
 
 :root {
@@ -55,6 +75,9 @@ main {
         --logo-animation-duration2: 6.8s;
     }
 
+    .gallery {
+        width: 100%;
+    }
 }
 
 @media (min-width: 768px) {
@@ -71,6 +94,10 @@ main {
         --logo-size: 10svw;
         --logo-animation-duration1: 8s;
         --logo-animation-duration2: 13.6s;
+    }
+
+    .gallery {
+        width: 70%;
     }
 }
 
@@ -103,30 +130,29 @@ main {
     overflow: hidden !important;
 }
 
-.footer {
-    width: 100%;
-    height: 10%;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    background-color: black;
-    overflow: hidden !important;
-}
-
-h1 {
+.header h1 {
     color: #df81b3;
     font-size: var(--font-size) !important;
     margin-top: var(--margin-top) !important;
     margin-bottom: auto;
     padding: 0;
     text-wrap: nowrap;
-    width: fit-content;
+    display: inline-block;
     font-family: 'Acumin', sans-serif;
     font-weight: 764;
     max-height: 10svh;
     height: fit-content;
     user-select: none;
+    animation: textRightToLeft 10s linear infinite;
+}
+
+@keyframes textRightToLeft {
+    from {
+        transform: translateX(100vw)
+    }
+    to {
+        transform: translateX(-100%)
+    }
 }
 
 .logo {
@@ -177,9 +203,8 @@ h1 {
     left: 50%;
     bottom: 2svh;
     transform: translateX(-50%);
-    background-color: #df81b3;
-    mix-blend-mode: difference;
-    border-radius: 5rem;
+    background-color: black;
+    border-radius: 100%;
     border: none;
     outline: none;
     cursor: pointer;
@@ -195,6 +220,36 @@ h1 {
 .nav-toggle:active {
     transform: translateX(-50%) scale(0.95);
 }
+
+.bg {
+    height: 6.5svh;
+    width: 6.5svh;
+    position: fixed;
+    z-index: 9998;
+    left: 50%;
+    bottom: 2svh;
+    transform: translateX(-50%);
+    background-color: black;
+    border-radius: 100%;
+    transition: transform, background-color;
+    transition-timing-function: ease;
+    transition-duration: 0.4s;
+    animation: pulse 1.5s ease infinite;
+    animation-delay: 2s;
+}
+
+@keyframes pulse {
+    0% {
+      transform: translateX(-50%) scale(1, 1);
+    }
+    50% {
+      opacity: 0.3;
+    }
+    100% {
+      transform: translateX(-50%) scale(1.5);
+      opacity: 0;
+    }
+}  
 
 .nav-toggle > i {
     position: absolute;
@@ -228,6 +283,14 @@ body[data-nav="true"] > .nav-toggle > .close {
     transform: translate(-50%, -50%) scale(1);
 }
 
+body[data-nav="true"] > .nav-toggle {
+    background-color: #df81b3;
+}
+
+body[data-nav="true"] > .bg {
+    background-color: #df81b3;
+}
+
 body[data-nav="true"] > main {
     transform: translateY(-30svh);
 }
@@ -239,17 +302,17 @@ nav {
     z-index: 1;
     left: 0px;
     bottom: 0px;
-    background-color: #df81b3;
+    background-color: black;
     overflow: hidden !important;
 }
 
 .nav-links {
     display: flex;
     justify-content: center;
-    gap: clamp(1rem, 2vw, 2rem);
-    margin-top: clamp(2rem, 2vw, 3rem);
+    gap: clamp(2rem, 3vw, 6rem);
+    margin-top: 5vh;
     padding: 0rem clamp(1rem, 2vw, 2rem);
-    transform: translateY(70%) scale(0.9);
+    transform: translateY(70%) scale(0.1);
     transition: transform, opacity;
     transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
     transition-duration: 0.4s;
@@ -264,19 +327,21 @@ nav {
 }
 
 .nav-links > .nav-link:hover {
-    transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.2, 1.2, 1.2);
 }
 
 .nav-links > .nav-link > .nav-link-label {
-    color: black;
-    font-size: 1.25rem;
+    color: #df81b3;
+    font-size: 3vh;
     margin: 0rem;
     text-transform: uppercase;
     text-align: center;
+    font-family: 'Acumin', sans-serif;
+    font-weight: 764;
 }
 
 .nav-links > .nav-link > .nav-link-image {
-    height: 15svh;
+    height: 10svh;
     aspect-ratio: 1/1;
     border-radius: 0.5rem;
     margin-top: 0.75rem;
@@ -289,11 +354,21 @@ body[data-nav="true"] > nav > .nav-links {
 }
 
 .gallery {
-    width: 100%;
-    height: 90%;
+    height: 100%;
     overflow: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+.gallery:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: linear-gradient(transparent calc(85%), #df81b3);
+    pointer-events: none;
 }
 
 .gallery::-webkit-scrollbar {

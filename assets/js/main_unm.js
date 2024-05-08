@@ -20,11 +20,7 @@ const aPhrases = [
 
 const headerh1 = document.querySelector('.header h1');
 
-const footerh1 = document.querySelector('.footer h1');
-
 const path = 'images/';
-
-const viewportWidth = window.innerWidth;
 
 const carouselInner = document.querySelector('.carousel-inner');
 const gallery = document.querySelector('.gallery');
@@ -57,56 +53,11 @@ window.onload = function() {
 
     headerh1.innerHTML = aPhrases[0];
 
-    let headerh1Width = headerh1.getBoundingClientRect().width + 50;
-
-    if(headerh1Width > 1000)
-    {
-        headerh1Width = headerh1Width + 100;
-    }
-
-    shuffle(aPhrases);
-
-    footerh1.innerHTML = aPhrases[0];
-
-    let footerh1Width = footerh1.getBoundingClientRect().width + 50;
-
-    if(footerh1Width > 1000)
-    {
-        footerh1Width = footerh1Width + 100;
-    }
-
-    headerh1.animate([
-        { transform: `translateX(${viewportWidth}px)` },
-        { transform: `translateX(-${headerh1Width}px)` }
-    ], {
-        duration: 10000,
-        iterations: Infinity
+    aMathRandoms.forEach((item, index) => {
+        setTimeout(() => {
+            addItemToCarousel(item, index);
+        }, 200 * index);
     });
-
-    footerh1.animate([
-        { transform: `translateX(-${footerh1Width}px)` },
-        { transform: `translateX(${viewportWidth}px)` }
-    ], {
-        duration: 10000,
-        iterations: Infinity
-    });
-
-    if(carouselInner)
-    {
-        aMathRandoms.forEach((item, index) => {
-            setTimeout(() => {
-                addItemToCarousel(item, index);
-            }, 500 * index);
-        });
-    }
-    else
-    {
-        aMathRandoms.forEach((item, index) => {
-            setTimeout(() => {
-                addItemToCarousel(item, index);
-            }, 100 * index);
-        });
-    }
 }
 
 function addItemToCarousel(item, index)
@@ -123,7 +74,6 @@ function addItemToCarousel(item, index)
 
     item = item.toString().padStart(5, '0');
 
-    
     if(bVideo)
     {
         element = document.createElement('video');
@@ -151,39 +101,44 @@ function addItemToCarousel(item, index)
 
     element.draggable = false;
     
-    if(carouselInner)
+    let carouselDiv = document.createElement('div');
+    carouselDiv.classList.add('carousel-item');
+    
+    if(index == 0)
     {
-        let carouselDiv = document.createElement('div');
-        carouselDiv.classList.add('carousel-item');
-        
-        if(index == 0)
-        {
-            carouselDiv.classList.add('active');
-        }
-    
-        element.draggable = false;
-    
-        carouselDiv.appendChild(element);
-    
-        carouselInner.appendChild(carouselDiv);
+        carouselDiv.classList.add('active');
     }
-    else
+    
+    element.draggable = false;
+    
+    carouselDiv.appendChild(element);
+
+    galleryElement = element.cloneNode(true);
+    
+    carouselInner.appendChild(carouselDiv);
+    galleryElement.classList.remove('d-block', 'w-100');
+    galleryElement.classList.add('img-fluid');
+
+    if(bVideo)
     {
-        element.classList.remove('d-block', 'w-100');
-        element.classList.add('img-fluid');
-
-        let elementDiv = document.createElement('div');
-        elementDiv.classList.add('gallery-item');
-        elementDiv.appendChild(element);
-
-        aGalleryColumns[galleryCounter].appendChild(elementDiv);
-
-        galleryCounter++;
-
-        if(galleryCounter == 3)
-        {
-            galleryCounter = 0;
-        }
+        galleryElement.setAttribute('controls', false);
+        galleryElement.setAttribute('loop', true);
+        galleryElement.muted = true;
+        galleryElement.setAttribute('autoplay', true);
+        galleryElement.setAttribute('playsinline', true);
+    }
+    
+    let elementDiv = document.createElement('div');
+    elementDiv.classList.add('gallery-item');
+    elementDiv.appendChild(galleryElement);
+    
+    aGalleryColumns[galleryCounter].appendChild(elementDiv);
+    
+    galleryCounter++;
+    
+    if(galleryCounter == 3)
+    {
+        galleryCounter = 0;
     }
 }
 
@@ -205,3 +160,26 @@ const eNavToggle = document.querySelector('.nav-toggle');
 eNavToggle.addEventListener('click', () => {
     document.body.dataset.nav = document.body.dataset.nav === 'true' ? 'false' : 'true';
 });
+
+function handleNavClick(index)
+{
+    document.body.dataset.nav = 'false';
+
+    const aActiveContainer = document.querySelector('.content[data-active="true"]');
+    
+    if(index != aActiveContainer.dataset.index)
+    {
+        const aIndexContainer = document.querySelector(`.content[data-index="${index}"]`);
+
+        if(index > aActiveContainer.dataset.index)
+        {
+            aActiveContainer.dataset.active = 'almost';
+            aIndexContainer.dataset.active = 'true';
+        }
+        else
+        {
+            aActiveContainer.dataset.active = 'false';
+            aIndexContainer.dataset.active = 'true';
+        }
+    }
+}
