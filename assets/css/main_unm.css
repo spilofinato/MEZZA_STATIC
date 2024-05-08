@@ -1,8 +1,3 @@
-@font-face {
-    font-family: 'Acumin';
-    src: url('../fonts/AcuminVariableConcept.otf') format('opentype');
-}
-
 html {
     scroll-behavior: smooth;
     background-color: black !important;
@@ -139,12 +134,11 @@ main {
 .header h1 {
     color: #df81b3;
     font-size: var(--font-size) !important;
-    margin-top: var(--margin-top) !important;
+    margin-top: auto;
     margin-bottom: auto;
     padding: 0;
     text-wrap: nowrap;
     display: inline-block;
-    font-family: 'Acumin', sans-serif;
     font-weight: 764;
     max-height: 10svh;
     height: fit-content;
