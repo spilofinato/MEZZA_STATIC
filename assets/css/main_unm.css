@@ -148,10 +148,20 @@ main {
 
 @keyframes textRightToLeft {
     from {
-        transform: translateX(100vw)
+        transform: translateX(100vw);
+        -moz-transform: translateX(100vw);
+        -ms-transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        -moz-transform: translateX(100vw);
+        -o-transform: translateX(100vw);
     }
     to {
-        transform: translateX(-100%)
+        transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
     }
 }
 
