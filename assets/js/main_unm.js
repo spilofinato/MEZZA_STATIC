@@ -56,7 +56,7 @@ window.onload = function() {
     aMathRandoms.forEach((item, index) => {
         setTimeout(() => {
             addItemToCarousel(item, index);
-        }, 200 * index);
+        }, 100 * index);
     });
 }
 
