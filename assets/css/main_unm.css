@@ -107,6 +107,20 @@ main {
     }
 }
 
+@media (min-width: 992px) {
+    .carousel {
+        width: 40%;
+        height: auto;
+    }
+}
+
+@media (min-width: 1920px) {
+    .carousel {
+        width: 30%;
+        height: auto;
+    }
+}
+
 .carousel {
     display: flex;
     justify-content: center;
