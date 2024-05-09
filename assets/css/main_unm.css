@@ -449,18 +449,19 @@ body[data-nav="true"] > nav > .nav-links {
 
 .toast {
     z-index: 9999 !important;
-    --bs-toast-font-size: 1.5rem !important;
 }
 
 @media (max-width: 992px) {
     .toast {
         --bs-toast-max-width: 90% !important;
+        --bs-toast-font-size: 1rem !important;
     }
 }
 
 @media (min-width: 992px) {
     .toast {
         --bs-toast-max-width: 40% !important;
+        --bs-toast-font-size: 1.5rem !important;
     }
 }
 

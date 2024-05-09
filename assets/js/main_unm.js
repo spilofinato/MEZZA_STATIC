@@ -210,9 +210,15 @@ function easterEggTinca() {
         
         counterTinca = 1;
 
+        a = document.createElement('a');
+        a.href = 'https://www.solopornoitaliani.xxx/video/135774/dottor-bavaro-pisciato-in-faccia-da-elena-spanu-of.html';
+        a.target = '_blank';
+
         setTimeout(() => {
-            window.open('https://www.solopornoitaliani.xxx/video/135774/dottor-bavaro-pisciato-in-faccia-da-elena-spanu-of.html', '_blank');   
+            a.click();
         }, 2000);
+
+        a.remove();
 
         return true;
     }
