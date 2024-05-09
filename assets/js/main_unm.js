@@ -110,6 +110,13 @@ function addItemToCarousel(item, index)
     }
     
     element.draggable = false;
+
+    if(item == 2 || item == 10)
+    {
+        element.addEventListener('click', () => {
+            easterEggTinca();
+        });
+    }
     
     carouselDiv.appendChild(element);
 
@@ -126,6 +133,13 @@ function addItemToCarousel(item, index)
         galleryElement.muted = true;
         galleryElement.setAttribute('autoplay', true);
         galleryElement.setAttribute('playsinline', true);
+    }
+
+    if(item == 2 || item == 10)
+    {
+        galleryElement.addEventListener('click', () => {
+            easterEggTinca();
+        });
     }
     
     let elementDiv = document.createElement('div');
@@ -181,5 +195,30 @@ function handleNavClick(index)
             aActiveContainer.dataset.active = 'false';
             aIndexContainer.dataset.active = 'true';
         }
+    }
+}
+
+let counterTinca = 1;
+
+function easterEggTinca() {
+    const toastLiveExample = document.getElementById('easterEggToast')
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+
+    if(counterTinca == 5)
+    {
+        toastBootstrap.show();
+        
+        counterTinca = 1;
+
+        setTimeout(() => {
+            window.open('https://www.solopornoitaliani.xxx/video/135774/dottor-bavaro-pisciato-in-faccia-da-elena-spanu-of.html', '_blank');   
+        }, 2000);
+
+        return true;
+    }
+    else
+    {
+        counterTinca++;
+        return false;
     }
 }

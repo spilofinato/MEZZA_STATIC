@@ -3,6 +3,15 @@
     src: url('../fonts/AcuminVariableConcept.otf') format('opentype');
 }
 
+:root {
+    --font-size: calc(6.5svh);
+    --margin-top: calc(1.5svh);
+    --bs-primary-rgb: 223, 129, 179;
+    --bs-body-font-family: 'Acumin', sans-serif !important;
+    --bs-body-font-weight: 764 !important;
+    --bs-body-line-height: 0 !important;
+}
+
 html {
     scroll-behavior: smooth;
     background-color: black !important;
@@ -58,11 +67,6 @@ main {
 
 .content[data-active="almost"] {
     transform: translateX(-100lvw);
-}
-
-:root {
-    --font-size: calc(6.5svh);
-    --margin-top: calc(1.5svh);
 }
 
 @media (max-width: 768px) {
@@ -436,4 +440,33 @@ body[data-nav="true"] > nav > .nav-links {
 
 .gallery > .col > .gallery-item > video {
     border-radius: 1rem !important;
+}
+
+.toast-header > img {
+    width: var(--bs-toast-font-size);
+    height: var(--bs-toast-font-size);
+}
+
+.toast {
+    z-index: 9999 !important;
+    --bs-toast-font-size: 1.5rem !important;
+}
+
+@media (max-width: 992px) {
+    .toast {
+        --bs-toast-max-width: 90% !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .toast {
+        --bs-toast-max-width: 40% !important;
+    }
+}
+
+.toast-body {
+    font-family: var(--bs-body-font-family) !important;
+    font-weight: var(--bs-body-font-weight) !important;
+    line-height: var(--bs-body-line-height) !important;
+    --bs-toast-padding-x: 1.5rem !important;
 }
