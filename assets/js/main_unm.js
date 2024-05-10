@@ -47,22 +47,11 @@ shuffle(aMathRandoms);
 let counter = 0;
 let galleryCounter = 0;
 
-let headerh1Width = headerh1.offsetWidth;
-let viewportWidth = document.documentElement.clientWidth;
-
 window.onload = function() {
 
     shuffle(aPhrases);
 
     headerh1.innerHTML = aPhrases[0];
-
-    headerh1.animate([
-        { transform: `translateX(100vw)` },
-        { transform: `translateX(-100%)` }
-    ], {
-        duration: 10000,
-        iterations: Infinity
-    });
 
     aMathRandoms.forEach((item, index) => {
         setTimeout(() => {
