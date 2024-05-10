@@ -167,46 +167,6 @@ main {
     max-height: 10svh;
     height: fit-content;
     user-select: none;
-    animation: textRightToLeft 10s linear infinite;
-    -webkit-animation: textRightToLeft 10s linear infinite;
-    -moz-animation: textRightToLeft 10s linear infinite;
-    -o-animation: textRightToLeft 10s linear infinite;
-}
-
-@-o-keyframes textRightToLeft {
-    from {
-        -o-transform: translateX(100vw);
-    }
-    to {
-        -o-transform: translateX(-100%);
-    }
-}
-
-@-moz-keyframes textRightToLeft {
-    from {
-        -moz-transform: translateX(100vw);
-    }
-    to {
-        -moz-transform: translateX(-100%);
-    }
-}
-
-@-webkit-keyframes textRightToLeft {
-    from {
-        -webkit-transform: translateX(100vw);
-    }
-    to {
-        -webkit-transform: translateX(-100%);
-    }
-}
-
-@keyframes textRightToLeft {
-    from {
-        transform: translateX(100vw);
-    }
-    to {
-        transform: translateX(-100%);
-    }
 }
 
 .logo {
