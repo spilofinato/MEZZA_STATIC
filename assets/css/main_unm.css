@@ -453,6 +453,7 @@ body[data-nav="true"] > nav > .nav-links {
 .table {
     text-align: center;
     text-wrap: nowrap;
+    font-weight: 650 !important;
 }
 
 .table td {
