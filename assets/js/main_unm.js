@@ -56,14 +56,6 @@ window.onload = function() {
 
     headerh1.innerHTML = aPhrases[0];
 
-    headerh1.animate([
-        { transform: `translateX(100vw)` },
-        { transform: `translateX(-100%)` }
-    ], {
-        duration: 10000,
-        iterations: Infinity
-    });
-
     aMathRandoms.forEach((item, index) => {
         setTimeout(() => {
             addItemToCarousel(item, index);
@@ -190,22 +182,57 @@ function handleNavClick(index)
 {
     document.body.dataset.nav = 'false';
 
-    const aActiveContainer = document.querySelector('.content[data-active="true"]');
-    
+    const aContainers = document.querySelectorAll('.content[data-active]');
+
+    const iNOfContainers = aContainers.length;
+
+    let aActiveContainer = null;
+
+    for(let i = 0; i < iNOfContainers; i++)
+    {
+        if(aContainers[i].dataset.active == 'true')
+        {
+            aActiveContainer = aContainers[i];
+            break;
+        }
+    }
+
     if(index != aActiveContainer.dataset.index)
     {
         const aIndexContainer = document.querySelector(`.content[data-index="${index}"]`);
-
+        
+        let iCounter = 0;
+        
         if(index > aActiveContainer.dataset.index)
         {
             aActiveContainer.dataset.active = 'almost';
-            aIndexContainer.dataset.active = 'true';
+
+            for(let i = parseInt(aActiveContainer.dataset.index) + 1; i < parseInt(index); i++)
+            {
+                setTimeout(() => {
+                    aContainers[i].dataset.active = 'almost';
+                }, i * 100);
+
+                iCounter = i;
+            }
         }
         else
         {
             aActiveContainer.dataset.active = 'false';
-            aIndexContainer.dataset.active = 'true';
+
+            for(let i = parseInt(index) + 1; i < parseInt(aActiveContainer.dataset.index); i++)
+            {
+                setTimeout(() => {
+                    aContainers[i].dataset.active = 'false';
+                }, i * 100);
+
+                iCounter = i;
+            }
         }
+
+        setTimeout(() => {
+            aIndexContainer.dataset.active = 'true';
+        }, (iCounter + 1) * 100);
     }
 }
 
