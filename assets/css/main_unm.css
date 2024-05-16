@@ -171,16 +171,6 @@ main {
     max-height: 10svh;
     height: fit-content;
     user-select: none;
-    animation: rightToLeft 10s linear infinite;
-}
-
-@keyframes rightToLeft {
-    0% {
-        transform: translateX(100lvw);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
 }
 
 .logo {
@@ -466,7 +456,7 @@ body[data-nav="true"] > nav > .nav-links {
 }
 
 .table td {
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.3rem;
 }
 
 .table-responsive {
