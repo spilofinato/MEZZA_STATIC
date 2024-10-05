@@ -8,7 +8,86 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 		<link rel="icon" href="favicon.ico">
-		<link rel="stylesheet" href="assets/css/main.css">
+		<link rel="stylesheet" href="assets/css/main_unm.css">
+
+		<!-- Open Graph -->
+		<meta property="og:title" content="LAMEZZATORRE">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://lamezzatorre.it/">
+		<meta property="og:image" content="https://lamezzatorre.it/assets/images/logo-oro.svg">
+		<meta property="og:description" content="Mezzatorre è l'unica squadra di calcio a 7 CSI rimasta a Predore(BG). Prende il suo nome dalla mezza torre, simbolo del paese situato sul Lago d'Iseo.">
+		<meta property="og:site_name" content="LAMEZZATORRE">
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="LAMEZZATORRE">
+		<meta name="twitter:description" content="Mezzatorre è l'unica squadra di calcio a 7 CSI rimasta a Predore(BG). Prende il suo nome dalla mezza torre, simbolo del paese situato sul Lago d'Iseo.">
+		<meta name="twitter:image" content="https://lamezzatorre.it/assets/images/logo-oro.svg">
+		<meta name="twitter:site" content="@lamezzatorre">
+		<meta name="twitter:creator" content="@lamezzatorre">
+		<meta name="twitter:url" content="https://lamezzatorre.it/">
+		<meta name="twitter:domain" content="lamezzatorre.it">
+		<meta name="twitter:label1" content="Written by">
+		<meta name="twitter:data1" content="LAMEZZATORRE">
+		<meta name="twitter:label2" content="Est. reading time">
+		<meta name="twitter:data2" content="1 minute">
+		<meta name="twitter:widgets:new-embed-design" content="on">
+
+		<!-- Style -->
+		<style>
+			@font-face {
+				font-family: 'Acumin';
+				src: url('assets/fonts/AcuminVariableConcept.otf') format('opentype');
+			}
+
+			:root {
+				--font-size: calc(6.5svh);
+				--margin-top: calc(1.5svh);
+				--bs-primary-rgb: 223, 129, 179;
+				--bs-body-font-family: 'Acumin', sans-serif !important;
+				--bs-body-font-size: 1rem !important;
+				--bs-body-font-weight: 764 !important;
+				--bs-body-line-height: 0 !important;
+				--bs-body-bg: #df81b3 !important;
+				--bs-border-color: #C874A1 !important;
+			}
+
+			html {
+				scroll-behavior: smooth;
+				background-color: black !important;
+				overflow: auto;
+				-ms-overflow-style: none;
+				scrollbar-width: none;
+			}
+
+			html::-webkit-scrollbar {
+				display: none;
+			}
+
+			body {
+				width: 100svw;
+				height: 100svh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				margin: 0;
+				padding: 0;
+				overflow: hidden !important;
+			}
+
+			main {
+				width: 100svw;
+				height: 100svh;
+				display: block;
+				overflow: hidden !important;
+				transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+				z-index: 5;
+				background-color: #df81b3;
+				position: relative;
+			}
+		</style>
+
 	</head>
 	<body data-nav="false">
 		<main>
@@ -16,142 +95,353 @@
 				<h1></h1>
 			</div>
 			<div class="content" data-active="almost" data-index="0">
-				<div class="row h-100 table-responsive">
-					<table class="table table-striped table-borderless align-middle">
-						<tbody class="overflow-y-auto">
+				<!-- CALENDARIO DELLE PARTITE -->
+
+				<div class="container">
+					<table class="table table-striped">
+						<thead>
 							<tr>
-								<td colspan="4">ANDATA</td>
+								<th scope="col">Data</th>
+								<th scope="col">Casa</th>
+								<th scope="col">Ospiti</th>
+								<th scope="col">Risultato</th>
 							</tr>
+						</thead>
+						<tbody>
 							<tr>
-								<td>07/10/2023</td>
+								<td>05/10/2024</td>
+								<td>PANKE 04</td>
 								<td>LA MEZZA TORRE</td>
-								<td>POL. COLPO ALTO</td>
-								<td>6-2</td>
+								<td>-</td>
 							</tr>
 							<tr>
-								<td>14/10/2023</td>
-								<td>POL. VIGOLO</td>
-								<td>LA MEZZA TORRE</td>
-								<td>3-3</td>
-							</tr>
-							<tr>
-								<td>21/10/2023</td>
-								<td>LA MEZZA TORRE</td>
-								<td>STELLA VERDE</td>
-								<td>4-3</td>
-							</tr>
-							<tr>
-								<td>28/10/2023</td>
-								<td>RAPTORS CALCINATE</td>
-								<td>LA MEZZA TORRE</td>
-								<td>1-2</td>
-							</tr>
-							<tr>
-								<td>04/11/2023</td>
-								<td>LA MEZZA TORRE</td>
-								<td>FOREST FLOR</td>
-								<td>2-2</td>
-							</tr>
-							<tr>
-								<td>15/11/2023</td>
-								<td>OR. MARTINENGO</td>
-								<td>LA MEZZA TORRE</td>
-								<td>1-6</td>
-							</tr>
-							<tr>
-								<td>18/11/2023</td>
+								<td>12/10/2024</td>
 								<td>LA MEZZA TORRE</td>
 								<td>GOOD FELLAS</td>
-								<td>0-5</td>
+								<td>-</td>
 							</tr>
 							<tr>
-								<td>25/11/2023</td>
-								<td>LOPIGOM</td>
+								<td>19/10/2024</td>
+								<td>NEGRONE</td>
 								<td>LA MEZZA TORRE</td>
-								<td>4-2</td>
+								<td>-</td>
 							</tr>
 							<tr>
-								<td>02/12/2023</td>
+								<td>26/10/2024</td>
 								<td>LA MEZZA TORRE</td>
-								<td>OR. VILLONGO</td>
-								<td>9-5</td>
+								<td>BRANICO</td>
+								<td>-</td>
 							</tr>
 							<tr>
-								<td>09/12/2023</td>
-								<td>EGO 2000 FC</td>
+								<td>02/11/2024</td>
 								<td>LA MEZZA TORRE</td>
-								<td>4-4</td>
+								<td>RAPACI</td>
+								<td>-</td>
 							</tr>
 							<tr>
-								<td colspan="4">RITORNO</td>
-							</tr>
-							<tr>
-								<td>10/02/2024</td>
-								<td>POL. COLPO ALTO</td>
+								<td>09/11/2024</td>
+								<td>WARRIORS CENATE</td>
 								<td>LA MEZZA TORRE</td>
-								<td>2-5</td>
+								<td>-</td>
 							</tr>
 							<tr>
-								<td>17/02/2024</td>
+								<td>16/11/2024</td>
 								<td>LA MEZZA TORRE</td>
-								<td>POL. VIGOLO</td>
-								<td>2-1</td>
+								<td>ALTO LAGO</td>
+								<td>-</td>
 							</tr>
 							<tr>
-								<td>24/02/2024</td>
-								<td>STELLA VERDE</td>
+								<td>23/11/2024</td>
+								<td>TORRE BOLDONE</td>
 								<td>LA MEZZA TORRE</td>
-								<td>0-3</td>
+								<td>-</td>
 							</tr>
 							<tr>
-								<td>02/03/2024</td>
+								<td>30/11/2024</td>
 								<td>LA MEZZA TORRE</td>
-								<td>RAPTORS CALCINATE</td>
-								<td>4-1</td>
+								<td>MARLOC</td>
+								<td>-</td>
 							</tr>
 							<tr>
-								<td>10/03/2024</td>
-								<td>FOREST FLOR</td>
+								<td>07/12/2024</td>
+								<td>NEW LINE BOLGARE</td>
 								<td>LA MEZZA TORRE</td>
-								<td>3-6</td>
+								<td>-</td>
 							</tr>
 							<tr>
-								<td>16/03/2024</td>
+								<td>14/12/2024</td>
 								<td>LA MEZZA TORRE</td>
-								<td>OR. MARTINENGO</td>
-								<td>4-3</td>
+								<td>RANZANICO A</td>
+								<td>-</td>
+							</tr>
+
+
+
+							<tr>
+								<td>08/02/2025</td>
+								<td>LA MEZZA TORRE</td>
+								<td>PANKE 04</td>
+								<td>-</td>
 							</tr>
 							<tr>
-								<td>23/03/2024</td>
+								<td>15/02/2025</td>
 								<td>GOOD FELLAS</td>
 								<td>LA MEZZA TORRE</td>
-								<td>6-5</td>
+								<td>-</td>
 							</tr>
 							<tr>
-								<td>06/04/2024</td>
+								<td>22/02/2025</td>
 								<td>LA MEZZA TORRE</td>
-								<td>LOPIGOM</td>
-								<td>2-2</td>
+								<td>NEGRONE</td>
+								<td>-</td>
 							</tr>
 							<tr>
-								<td>14/04/2024</td>
-								<td>OR. VILLONGO</td>
+								<td>01/03/2025</td>
+								<td>BRANICO</td>
 								<td>LA MEZZA TORRE</td>
-								<td>4-7</td>
+								<td>-</td>
 							</tr>
 							<tr>
-								<td>20/04/2024</td>
+								<td>08/03/2025</td>
+								<td>RAPACI</td>
 								<td>LA MEZZA TORRE</td>
-								<td>EGO 2000 FC</td>
-								<td>4-0</td>
+								<td>-</td>
+							</tr>
+							<tr>
+								<td>15/03/2025</td>
+								<td>LA MEZZA TORRE</td>
+								<td>WARRIORS CENATE</td>
+								<td>-</td>
+							</tr>
+							<tr>
+								<td>22/03/2025</td>
+								<td>ALTO LAGO</td>
+								<td>LA MEZZA TORRE</td>
+								<td>-</td>
+							</tr>
+							<tr>
+								<td>29/03/2025</td>
+								<td>LA MEZZA TORRE</td>
+								<td>TORRE BOLDONE</td>
+								<td>-</td>
+							</tr>
+							<tr>
+								<td>05/04/2025</td>
+								<td>MARLOC</td>
+								<td>LA MEZZA TORRE</td>
+								<td>-</td>
+							</tr>
+							<tr>
+								<td>12/04/2025</td>
+								<td>LA MEZZA TORRE</td>
+								<td>NEW LINE BOLGARE</td>
+								<td>-</td>
+							</tr>
+							<tr>
+								<td>12/04/2025</td>
+								<td>RANZANICO A</td>
+								<td>LA MEZZA TORRE</td>
+								<td>-</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
 			<div class="content" data-active="true" data-index="1">
-				<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+				<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
 					<div class="carousel-inner">
+						<div class="carousel-item">
+							<img src="assets/images/image00001.webp" class="d-block w-100" alt="Meme Mezzatorre 1">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00002.webp" class="d-block w-100" alt="Meme Mezzatorre 2">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00003.webp" class="d-block w-100" alt="Meme Mezzatorre 3">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00004.webp" class="d-block w-100" alt="Meme Mezzatorre 4">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00005.webp" class="d-block w-100" alt="Meme Mezzatorre 5">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00006.webp" class="d-block w-100" alt="Meme Mezzatorre 6">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00007.webp" class="d-block w-100" alt="Meme Mezzatorre 7">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00008.webp" class="d-block w-100" alt="Meme Mezzatorre 8">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00009.webp" class="d-block w-100" alt="Meme Mezzatorre 9">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00010.webp" class="d-block w-100" alt="Meme Mezzatorre 10">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00011.webp" class="d-block w-100" alt="Meme Mezzatorre 11">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00012.webp" class="d-block w-100" alt="Meme Mezzatorre 12">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00013.webp" class="d-block w-100" alt="Meme Mezzatorre 13">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00014.webp" class="d-block w-100" alt="Meme Mezzatorre 14">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00015.webp" class="d-block w-100" alt="Meme Mezzatorre 15">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00016.webp" class="d-block w-100" alt="Meme Mezzatorre 16">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00017.webp" class="d-block w-100" alt="Meme Mezzatorre 17">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00018.webp" class="d-block w-100" alt="Meme Mezzatorre 18">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00019.webp" class="d-block w-100" alt="Meme Mezzatorre 19">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00020.webp" class="d-block w-100" alt="Meme Mezzatorre 20">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00021.webp" class="d-block w-100" alt="Meme Mezzatorre 21">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00022.webp" class="d-block w-100" alt="Meme Mezzatorre 22">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00023.webp" class="d-block w-100" alt="Meme Mezzatorre 23">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00024.webp" class="d-block w-100" alt="Meme Mezzatorre 24">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00025.webp" class="d-block w-100" alt="Meme Mezzatorre 25">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00026.webp" class="d-block w-100" alt="Meme Mezzatorre 26">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00027.webp" class="d-block w-100" alt="Meme Mezzatorre 27">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00028.webp" class="d-block w-100" alt="Meme Mezzatorre 28">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00029.webp" class="d-block w-100" alt="Meme Mezzatorre 29">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00030.webp" class="d-block w-100" alt="Meme Mezzatorre 30">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00031.webp" class="d-block w-100" alt="Meme Mezzatorre 31">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00032.webp" class="d-block w-100" alt="Meme Mezzatorre 32">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00033.webp" class="d-block w-100" alt="Meme Mezzatorre 33">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00034.webp" class="d-block w-100" alt="Meme Mezzatorre 34">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00035.webp" class="d-block w-100" alt="Meme Mezzatorre 35">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00036.webp" class="d-block w-100" alt="Meme Mezzatorre 36">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00037.webp" class="d-block w-100" alt="Meme Mezzatorre 37">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00038.webp" class="d-block w-100" alt="Meme Mezzatorre 38">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00039.webp" class="d-block w-100" alt="Meme Mezzatorre 39">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00040.webp" class="d-block w-100" alt="Meme Mezzatorre 40">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00041.webp" class="d-block w-100" alt="Meme Mezzatorre 41">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00042.webp" class="d-block w-100" alt="Meme Mezzatorre 42">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00043.webp" class="d-block w-100" alt="Meme Mezzatorre 43">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00044.webp" class="d-block w-100" alt="Meme Mezzatorre 44">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00045.webp" class="d-block w-100" alt="Meme Mezzatorre 45">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00046.webp" class="d-block w-100" alt="Meme Mezzatorre 46">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00047.webp" class="d-block w-100" alt="Meme Mezzatorre 47">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00048.webp" class="d-block w-100" alt="Meme Mezzatorre 48">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00049.webp" class="d-block w-100" alt="Meme Mezzatorre 49">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00050.webp" class="d-block w-100" alt="Meme Mezzatorre 50">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00051.webp" class="d-block w-100" alt="Meme Mezzatorre 51">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00052.webp" class="d-block w-100" alt="Meme Mezzatorre 52">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00053.webp" class="d-block w-100" alt="Meme Mezzatorre 53">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00054.webp" class="d-block w-100" alt="Meme Mezzatorre 54">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00055.webp" class="d-block w-100" alt="Meme Mezzatorre 55">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00056.webp" class="d-block w-100" alt="Meme Mezzatorre 56">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00057.webp" class="d-block w-100" alt="Meme Mezzatorre 57">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00058.webp" class="d-block w-100" alt="Meme Mezzatorre 58">
+						</div>
+						<div class="carousel-item">
+							<img src="assets/images/image00059.webp" class="d-block w-100" alt="Meme Mezzatorre 59">
+						</div>
+						<div class="carousel-item">
+							<video src="assets/images/image00060.mp4" class="d-block w-100" alt="Meme Mezzatorre 60" autoplay loop muted loading="lazy"></video>
+						</div>
+						<div class="carousel-item">
+							<video src="assets/images/image00061.mp4" class="d-block w-100" alt="Meme Mezzatorre 61" autoplay loop muted loading="lazy"></video>
+						</div>
+						<div class="carousel-item">
+							<video src="assets/images/image00062.mp4" class="d-block w-100" alt="Meme Mezzatorre 62" autoplay loop muted loading="lazy"></video>
+						</div>
+						<div class="carousel-item">
+							<video src="assets/images/image00063.mp4" class="d-block w-100" alt="Meme Mezzatorre 63" autoplay loop muted loading="lazy"></video>
+						</div>
+						<div class="carousel-item">
+							<video src="assets/images/image00064.mp4" class="d-block w-100" alt="Meme Mezzatorre 64" autoplay loop muted loading="lazy"></video>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -168,22 +458,22 @@
 		</main>
 		<nav>
 			<div class="nav-links">
-				<a class="nav-link" href="javascript:handleNavClick(0)">
+				<a class="nav-link" href="javascript:handleNavClick(0)" aria-label="Calendario">
 					<h2 class="nav-link-label nice-font">CALENDARIO</h2>
-					<img class="nav-link-image" src="images/calendar.svg" alt="">
+					<img class="nav-link-image" src="assets/images/calendar.webp" alt="Calendario" loading="lazy">
 				</a>
-				<a class="nav-link" href="javascript:handleNavClick(1)">
+				<a class="nav-link" href="javascript:handleNavClick(1)" aria-label="Home">
 					<h2 class="nav-link-label nice-font">HOME</h2>
-					<img class="nav-link-image" src="images/logo-rosa-cut.svg" alt="">
+					<img class="nav-link-image" src="assets/images/logo-rosa-cut.svg" alt="Home" loading="lazy">
 				</a>
-				<a class="nav-link" href="javascript:handleNavClick(2)">
+				<a class="nav-link" href="javascript:handleNavClick(2)" aria-label="Galleria">
 					<h2 class="nav-link-label nice-font">MEME</h2>
-					<img class="nav-link-image" src="images/memes.png" alt="">
+					<img class="nav-link-image" src="assets/images/memes.webp" alt="Galleria" loading="lazy">
 				</a>
 			</div>
 		</nav>
 		<a href="https://www.instagram.com/lamezzatorre/" target="_blank">
-			<img class="logo" src="images/logo-oro.svg" alt="logo">
+			<img class="logo" src="assets/images/logo-oro.svg" alt="Logo">
 		</a>
 		<button class="nav-toggle">
 			<i class="open">
@@ -200,7 +490,7 @@
 		<div class="bg"></div>
 		<div id="easterEggToast" class="toast top-50 start-50 translate-middle position-absolute bg-primary" role="alert" aria-live="assertive" aria-atomic="true">
 			<div class="toast-header bg-primary">
-				<img src="images/logo-oro.svg" class="rounded me-2" alt="">
+				<img src="assets/images/logo-oro.svg" class="rounded me-2" alt="">
 				<p class="mt-auto mb-auto me-auto">LAMEZZATORRE</p>
 				<small></small>
 				<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -210,5 +500,5 @@
 			</div>
 		</div>
 	</body>
-	<script src="assets/js/main.js"></script>
+	<script src="assets/js/main_unm.js"></script>
 </html>
