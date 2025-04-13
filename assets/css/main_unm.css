@@ -21,20 +21,19 @@
 }
 
 @media (max-width: 768px) {
+	@media (orientation: portrait) {
+		.carousel {
+			width: 80%;
+			height: auto;
+		}
+	}
 
-    @media (orientation: portrait) {
-        .carousel {
-            width: 80%;
-            height: auto;
-        }
-    }
-
-    @media (orientation: landscape) {
-        .carousel {
-            width: 30%;
-            height: auto;
-        }
-    }
+	@media (orientation: landscape) {
+		.carousel {
+			width: 30%;
+			height: auto;
+		}
+	}
 
 	.logo {
 		width: 20svw !important;
@@ -49,29 +48,28 @@
 
 	.gallery {
 		width: 100%;
-        grid-template-columns: repeat(auto-fill, minmax(90%, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(90%, 1fr));
 	}
 
-    .nav-links {
-        margin-top: clamp(0.5rem, 2svh, 1rem) !important;
-    }
+	.nav-links {
+		margin-top: clamp(0.5rem, 2svh, 1rem) !important;
+	}
 }
 
 @media (min-width: 768px) {
+	@media (orientation: portrait) {
+		.carousel {
+			width: 45% !important;
+			height: auto;
+		}
+	}
 
-    @media (orientation: portrait) {
-        .carousel {
-            width: 45% !important;
-            height: auto;
-        }
-    }
-
-    @media (orientation: landscape) {
-        .carousel {
-            width: 25%;
-            height: auto;
-        }
-    }
+	@media (orientation: landscape) {
+		.carousel {
+			width: 25%;
+			height: auto;
+		}
+	}
 
 	.logo {
 		width: 10svw !important;
@@ -86,12 +84,12 @@
 
 	.gallery {
 		width: 70%;
-        grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
 	}
 
-    .nav-links {
-        margin-top: clamp(0rem, 1svh, 2rem) !important;
-    }
+	.nav-links {
+		margin-top: clamp(0rem, 1svh, 2rem) !important;
+	}
 }
 
 @media (min-width: 992px) {
@@ -109,10 +107,10 @@
 }
 
 @media (min-width: 2560px) {
-    .carousel {
-        width: 25%;
-        height: auto;
-    }
+	.carousel {
+		width: 25%;
+		height: auto;
+	}
 }
 
 .carousel {
@@ -405,9 +403,9 @@ nav {
 
 .nav-links {
 	display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
-    justify-items: center;
-    align-items: center;
+	grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+	justify-items: center;
+	align-items: center;
 	gap: clamp(1rem, 2vw, 6rem);
 	padding: 0rem clamp(1rem, 2vw, 2rem);
 	transform: translateY(70%) scale(0.1);
@@ -462,11 +460,11 @@ body[data-nav='true'] > nav > .nav-links {
 	overflow: auto;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
-    display: grid;
-    gap: 1rem;
-    padding: 1rem;
-    margin: 0 auto;
-    max-width: 100%;
+	display: grid;
+	gap: 1rem;
+	padding: 1rem;
+	margin: 0 auto;
+	max-width: 100%;
 }
 
 .gallery:before {
@@ -481,12 +479,12 @@ body[data-nav='true'] > nav > .nav-links {
 }
 
 .gallery::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
 .gallery > .col {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .gallery > .col > .gallery-item {
@@ -496,16 +494,16 @@ body[data-nav='true'] > nav > .nav-links {
 
 .gallery > .col > .gallery-item > img {
 	border-radius: 1rem !important;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
 }
 
 .gallery > .col > .gallery-item > video {
-    border-radius: 1rem !important;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+	border-radius: 1rem !important;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
 }
 
 .container {
@@ -519,80 +517,93 @@ body[data-nav='true'] > nav > .nav-links {
 	margin-bottom: 9svh;
 }
 
-table {
-	border-collapse: separate !important;
-	font-size: clamp(0.6rem, 2vw, 1.5rem) !important;
-	border-spacing: 0 2px !important;
-	max-height: 75vh;
-	font-weight: 650 !important;
-	text-align: center !important;
-	transition: all 0.5s ease-in-out;
-    width: 90%;
-    margin-top: 1rem;
+.responsive-table {
+	width: min(70%, 1000px) !important;
+	padding: 0 !important;
+
+	li {
+		border-radius: 3px;
+		padding: 25px 30px;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 25px;
+	}
+	.table-header {
+		background-color: #c4b49b;
+		font-size: 14px;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+	}
+	.table-row {
+		background-color: #e495bf;
+		box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+	}
+	.table-row:hover {
+		background-color: #df81b3 !important;
+		box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.2);
+		transition: background-color 0.3s ease, box-shadow 0.3s ease;
+	}
+	.table-row:nth-child(odd) {
+		background-color: #e9aacc;
+	}
+	.col-1 {
+		flex-basis: 21%;
+	}
+	.col-2 {
+		flex-basis: 32%;
+	}
+	.col-3 {
+		flex-basis: 32%;
+	}
+	.col-4 {
+		flex-basis: 15%;
+		text-align: center;
+	}
+
+	@media all and (max-width: 767px) {
+		.table-header {
+			display: none;
+		}
+		li {
+			display: block;
+		}
+		.col {
+			flex-basis: 100%;
+		}
+		.col {
+			display: flex;
+			padding: 0 0;
+			&:before {
+				color: #33312e;
+				padding-right: 10px;
+				content: attr(data-label);
+				flex-basis: 37%;
+				text-align: right;
+			}
+		}
+	}
 }
 
-table thead {
-	color: white !important;
-}
-
-table th {
-	border: 0;
-	border-radius: 0px;
-	border-top: 2px #cc6699 solid !important;
-	border-bottom: 2px solid #cc6699 !important;
-	background-color: #cc6699 !important;
-	color: white !important;
-	padding: 1rem 0.1rem !important;
-}
-
-table th:nth-child(1) {
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-}
-
-table th:nth-child(4) {
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-}
-
-table > tbody > tr > td {
-	border: 0;
-	background-color: #cc6699 !important;
-	--bs-table-bg-type: transparent !important;
-	border-radius: 0px;
-	padding: 1rem 0.1rem !important;
-	box-shadow: 0;
-}
-
-table > tbody > tr:nth-child(odd) > td {
-	border-color: rgba(204, 102, 153, 0.1) !important;
-	background-color: rgba(204, 102, 153, 0.4) !important;
-}
-
-table > tbody > tr > td:nth-child(1) {
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-}
-
-table > tbody > tr > td:nth-child(4) {
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
+@media all and (max-width: 767px) {
+	.responsive-table {
+		width: min(90%, 1000px) !important;
+	}
 }
 
 /* Utility */
 
 .w-100 {
-    width: 100% !important;
+	width: 100% !important;
 }
 
 .w-50 {
-    width: 50% !important;
+	width: 50% !important;
 }
 
 .w-25 {
-    width: 25% !important;
+	width: 25% !important;
 }
 
 .w-10 {
-    width: 10% !important;
+	width: 10% !important;
 }

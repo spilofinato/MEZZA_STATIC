@@ -1,7 +1,7 @@
 const aPhrases = [
     "BOUNTY MERDA",
     "CERTIFIED PEDOPHILES",
-    "2014-2024",
+    "2014-2025",
     "NIENTE RISSE",
     "BANDITI DAL CARNE E FUOCO",
     "ETERNI SECONDI",
@@ -22,19 +22,6 @@ const headerh1 = document.querySelector(".header h1");
 
 const path = "images/";
 
-const carouselInner = document.querySelector(".carousel-inner");
-const gallery = document.querySelector(".gallery");
-
-let aGalleryColumns = [];
-
-if (gallery) {
-    let galleryColumn1 = gallery.firstElementChild;
-    let galleryColumn2 = gallery.firstElementChild.nextElementSibling;
-    let galleryColumn3 = gallery.lastElementChild;
-
-    aGalleryColumns = [galleryColumn1, galleryColumn2, galleryColumn3];
-}
-
 let aMathRandoms = [];
 
 for (let i = 0; i < 64; i++) {
@@ -43,18 +30,12 @@ for (let i = 0; i < 64; i++) {
 
 shuffle(aMathRandoms);
 
-let counter = 0;
-let galleryCounter = 0;
-
-let headerh1Width = headerh1.offsetWidth;
-let viewportWidth = document.documentElement.clientWidth;
-
 document.addEventListener("DOMContentLoaded", () => {
     shuffle(aPhrases);
 
     headerh1.innerHTML = aPhrases[0];
 
-    headerh1.animate([{ transform: `translateX(100vw)` }, { transform: `translateX(-100%)` }], {
+    headerh1.animate([{ transform: `translateX(100lvw)` }, { transform: `translateX(-100%)` }], {
         duration: 10000,
         iterations: Infinity,
     });
