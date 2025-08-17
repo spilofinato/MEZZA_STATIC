@@ -3,7 +3,7 @@
 	height: 90svh;
 	top: 0;
 	left: 0;
-	margin-top: 10svh;
+	padding-top: calc(10svh + 7px);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -52,7 +52,7 @@
 	}
 
 	.nav-links {
-		margin-top: clamp(0.5rem, 2svh, 1rem) !important;
+		margin-top: clamp(2rem, 15svh, 30rem) !important;
 	}
 }
 
@@ -88,7 +88,7 @@
 	}
 
 	.nav-links {
-		margin-top: clamp(0rem, 1svh, 2rem) !important;
+		margin-top: clamp(2rem, 15svh, 30rem) !important;
 	}
 }
 
@@ -113,54 +113,11 @@
 	}
 }
 
-.carousel {
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	overflow: hidden !important;
-	background: 0 0 !important;
-	border-radius: 1rem !important;
-}
-
-.carousel-track {
-	display: flex !important;
-	align-items: center !important;
-	background: 0 0 !important;
-	position: relative;
-	width: 100%;
-	transition: transform 0.5s ease-in-out;
-	width: 100%;
-}
-
-.slide {
-	position: relative;
-	float: left;
-	width: 100%;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	transition: transform 0.6s ease-in-out;
-	min-width: 100%;
-	height: 100%;
-	border-radius: 1rem !important;
-}
-
-.slide img {
-	object-fit: contain !important;
-	border-radius: 1rem !important;
-	width: 100%;
-	display: block;
-}
-
-.slide video {
-	object-fit: contain !important;
-	border-radius: 1rem !important;
-	width: 100%;
-	display: block;
-}
-
 .header {
-	width: 100%;
+	width: calc(100% - 10px);
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 7px;
 	height: 10%;
 	display: flex;
 	flex-direction: row;
@@ -168,6 +125,9 @@
 	align-items: center;
 	background-color: black;
 	overflow: hidden !important;
+	border-radius: 50rem;
+	position: relative;
+	z-index: 1000;
 }
 
 .header h1 {
@@ -387,11 +347,11 @@ body[data-nav='true'] > .bg {
 }
 
 body[data-nav='true'] > main {
-	transform: translateY(-30svh);
+	transform: translateY(-50svh);
 }
 
 nav {
-	height: 30svh;
+	height: 50svh;
 	width: 100svw;
 	position: absolute;
 	z-index: 1;
@@ -399,6 +359,8 @@ nav {
 	bottom: 0px;
 	background-color: black;
 	overflow: hidden !important;
+	transition: all cubic-bezier(0.77, 0, 0.175, 1) 1.2s;
+	border-radius: 0;
 }
 
 .nav-links {
@@ -406,7 +368,7 @@ nav {
 	grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
 	justify-items: center;
 	align-items: center;
-	gap: clamp(1rem, 2vw, 6rem);
+	gap: clamp(0rem, 2vw, 6rem);
 	padding: 0rem clamp(1rem, 2vw, 2rem);
 	transform: translateY(70%) scale(0.1);
 	transition: transform, opacity;
@@ -450,6 +412,11 @@ nav {
 	object-fit: contain;
 }
 
+body[data-nav='true'] > nav {
+	border-top-left-radius: 50rem;
+	border-top-right-radius: 50rem;
+}
+
 body[data-nav='true'] > nav > .nav-links {
 	transform: translateY(0%) scale(1);
 	opacity: 1;
@@ -465,6 +432,7 @@ body[data-nav='true'] > nav > .nav-links {
 	padding: 1rem;
 	margin: 0 auto;
 	max-width: 100%;
+	padding-top: 3rem;
 }
 
 .gallery:before {
@@ -485,25 +453,7 @@ body[data-nav='true'] > nav > .nav-links {
 .gallery > .col {
 	display: flex;
 	flex-direction: column;
-}
-
-.gallery > .col > .gallery-item {
-	border-radius: 1rem !important;
-	padding: 1rem;
-}
-
-.gallery > .col > .gallery-item > img {
-	border-radius: 1rem !important;
-	width: 100%;
-	height: auto;
-	object-fit: cover;
-}
-
-.gallery > .col > .gallery-item > video {
-	border-radius: 1rem !important;
-	width: 100%;
-	height: auto;
-	object-fit: cover;
+	gap: 1rem;
 }
 
 .container {
@@ -514,80 +464,8 @@ body[data-nav='true'] > nav > .nav-links {
 	flex-grow: 1;
 	max-height: 90%;
 	overflow-y: auto;
-	margin-bottom: 9svh;
-}
-
-.responsive-table {
-	width: min(70%, 1000px) !important;
-	padding: 0 !important;
-
-	li {
-		border-radius: 3px;
-		padding: 25px 30px;
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: 25px;
-	}
-	.table-header {
-		background-color: #c4b49b;
-		font-size: 14px;
-		text-transform: uppercase;
-		letter-spacing: 0.03em;
-	}
-	.table-row {
-		background-color: #e495bf;
-		box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
-	}
-	.table-row:hover {
-		background-color: #df81b3 !important;
-		box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.2);
-		transition: background-color 0.3s ease, box-shadow 0.3s ease;
-	}
-	.table-row:nth-child(odd) {
-		background-color: #e9aacc;
-	}
-	.col-1 {
-		flex-basis: 21%;
-	}
-	.col-2 {
-		flex-basis: 32%;
-	}
-	.col-3 {
-		flex-basis: 32%;
-	}
-	.col-4 {
-		flex-basis: 15%;
-		text-align: center;
-	}
-
-	@media all and (max-width: 767px) {
-		.table-header {
-			display: none;
-		}
-		li {
-			display: block;
-		}
-		.col {
-			flex-basis: 100%;
-		}
-		.col {
-			display: flex;
-			padding: 0 0;
-			&:before {
-				color: #33312e;
-				padding-right: 10px;
-				content: attr(data-label);
-				flex-basis: 37%;
-				text-align: right;
-			}
-		}
-	}
-}
-
-@media all and (max-width: 767px) {
-	.responsive-table {
-		width: min(90%, 1000px) !important;
-	}
+	padding-top: 1rem;
+	padding-bottom: 9svh;
 }
 
 /* Utility */
@@ -606,4 +484,394 @@ body[data-nav='true'] > nav > .nav-links {
 
 .w-10 {
 	width: 10% !important;
+}
+
+/* === Carousel polish (keeps your structure/behavior) ====================== */
+.carousel {
+	/* tokens */
+	--radius: 1rem;
+	--shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+	--ring: 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+	--edge-fade: 0px; /* gradient width at edges */
+	--bg: rgba(10, 12, 16, 0.6); /* letterbox fill behind contain media */
+
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden !important;
+	background: 0 0 !important;
+	border-radius: var(--radius) !important;
+	box-shadow: var(--shadow);
+	isolation: isolate;
+}
+
+/* soft edge gradients (hint there’s more content) */
+.carousel::before,
+.carousel::after {
+	content: '';
+	position: absolute;
+	inset: 0 auto;
+	width: var(--edge-fade);
+	z-index: 2;
+	pointer-events: none;
+	mix-blend-mode: multiply;
+}
+.carousel::before {
+	left: 0;
+	background: linear-gradient(90deg, rgba(0, 0, 0, 0.45), transparent 60%);
+}
+.carousel::after {
+	right: 0;
+	background: linear-gradient(-90deg, rgba(0, 0, 0, 0.45), transparent 60%);
+}
+
+.carousel-track {
+	display: flex !important;
+	align-items: center !important;
+	background: 0 0 !important;
+	position: relative;
+	width: 100%;
+	transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+	will-change: transform; /* smoother JS-driven slides */
+}
+
+/* slides get a subtle ring + rounded corners */
+.slide {
+	float: left;
+	width: 100%;
+	min-width: 100%;
+	height: 100%;
+	border-radius: var(--radius) !important;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s;
+	box-shadow: var(--ring);
+	overflow: hidden;
+	position: relative;
+	position: relative;
+	overflow: hidden;
+	max-height: clamp(240px, 56vh, 720px);
+	border-radius: 1rem;
+}
+
+.slide::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background-size: cover;
+	background-position: center;
+	background-image: var(--bg-image);
+	filter: blur(20px);
+	transform: scale(1.08);
+	opacity: 0.6;
+	z-index: -1;
+}
+
+/* optional glossy overlay */
+.slide::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.04),
+		rgba(255, 255, 255, 0)
+	);
+}
+
+/* media stays contain, but gets consistent height + letterboxing color */
+.slide img,
+.slide video {
+	object-fit: contain !important;
+	border-radius: var(--radius) !important;
+	width: 100%;
+	height: clamp(240px, 56vh, 720px); /* responsive height */
+	display: block;
+	background: var(--bg); /* behind transparent areas when contained */
+	transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s;
+	background: transparent;
+}
+
+/* Ken Burns-lite on hover/focus (desktop only) */
+@media (hover: hover) and (pointer: fine) {
+	.slide:hover img,
+	.slide:hover video,
+	.slide:focus-within img,
+	.slide:focus-within video {
+		transform: scale(1.02);
+		filter: saturate(1.03) contrast(1.03);
+	}
+}
+
+/* tap/drag feedback while sliding via JS */
+.carousel-track:active .slide img,
+.carousel-track:active .slide video {
+	transform: scale(1.01);
+}
+
+/* light mode tweaks */
+@media (prefers-color-scheme: light) {
+	.carousel {
+		--shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+		--ring: 0 0 0 1px rgba(0, 0, 0, 0.06) inset;
+		--bg: rgba(245, 246, 248, 0.9);
+	}
+	.carousel::before {
+		background: linear-gradient(
+			90deg,
+			rgba(255, 255, 255, 0.85),
+			transparent 60%
+		);
+	}
+	.carousel::after {
+		background: linear-gradient(
+			-90deg,
+			rgba(255, 255, 255, 0.85),
+			transparent 60%
+		);
+	}
+}
+
+/* accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.carousel-track,
+	.slide,
+	.slide img,
+	.slide video {
+		transition: none !important;
+	}
+}
+
+/* ---- Gallery card styling only ---- */
+.gallery > .col > .gallery-item {
+	position: relative;
+	border-radius: 1rem !important;
+	overflow: hidden;
+
+	/* background + shadow */
+	background: rgba(20, 22, 28, 0.85);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), 0 12px 24px rgba(0, 0, 0, 0.25);
+
+	/* subtle glass effect */
+	backdrop-filter: blur(6px) saturate(120%);
+	-webkit-backdrop-filter: blur(6px) saturate(120%);
+
+	/* spacing */
+	padding: 0; /* let media fill card edge-to-edge */
+	margin: 0;
+
+	/* animation hooks */
+	transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s,
+		filter 0.35s;
+	will-change: transform;
+}
+
+/* glossy overlay */
+.gallery > .col > .gallery-item::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.05) 0%,
+		rgba(255, 255, 255, 0) 40%
+	);
+	mix-blend-mode: soft-light;
+}
+
+/* lift on hover (desktop only) */
+@media (hover: hover) and (pointer: fine) {
+	.gallery > .col > .gallery-item:hover {
+		transform: translateY(-4px) scale(1.02);
+		box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3), 0 18px 36px rgba(0, 0, 0, 0.35);
+	}
+}
+
+/* media inside card fills properly */
+.gallery > .col > .gallery-item > img,
+.gallery > .col > .gallery-item > video {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: inherit !important;
+	object-fit: cover;
+	transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* optional zoom-in of media on hover */
+@media (hover: hover) and (pointer: fine) {
+	.gallery > .col > .gallery-item:hover > img,
+	.gallery > .col > .gallery-item:hover > video {
+		transform: scale(1.03);
+	}
+}
+
+/* ---- Responsive list-table facelift ---- */
+.responsive-table {
+	--radius: 14px;
+	--pad-x: 24px;
+	--pad-y: 18px;
+	--header-bg: #c4b49b;
+	--row-bg: #e495bf;
+	--row-bg-alt: #e9aacc;
+	--row-hover: #df81b3;
+	--sep: rgba(0, 0, 0, 0.12);
+
+	width: min(70%, 1000px) !important;
+	margin: 0 auto;
+	padding: 0 !important;
+	list-style: none;
+}
+
+/* row base */
+.responsive-table li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: var(--pad-y) var(--pad-x);
+	margin-bottom: 16px;
+	border-radius: var(--radius);
+	position: relative;
+	overflow: clip;
+	box-shadow: 0 1px 0 var(--sep) inset, 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* sticky header card */
+.responsive-table .table-header {
+	position: sticky;
+	top: 0;
+	z-index: 2;
+	background: linear-gradient(
+		180deg,
+		var(--header-bg),
+		color-mix(in oklab, var(--header-bg) 92%, #000 8%)
+	);
+	text-transform: uppercase;
+	font-size: 13px;
+	letter-spacing: 0.06em;
+	color: #1f1b16;
+	box-shadow: 0 1px 0 var(--sep) inset, 0 8px 18px rgba(0, 0, 0, 0.08);
+	backdrop-filter: saturate(120%);
+}
+
+/* data rows */
+.responsive-table .table-row {
+	background: var(--row-bg);
+	transition: transform 0.2s ease, box-shadow 0.2s ease,
+		background-color 0.2s ease;
+}
+.responsive-table .table-row:nth-of-type(odd) {
+	background: var(--row-bg-alt);
+}
+.responsive-table .table-row:hover {
+	background: var(--row-hover) !important;
+	box-shadow: 0 1px 0 var(--sep) inset, 0 14px 28px rgba(0, 0, 0, 0.18);
+	transform: translateY(-1px);
+}
+
+/* cols */
+.responsive-table .col {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+}
+.responsive-table .col-1 {
+	flex-basis: 21%;
+}
+.responsive-table .col-2 {
+	flex-basis: 32%;
+}
+.responsive-table .col-3 {
+	flex-basis: 32%;
+}
+.responsive-table .col-4 {
+	flex-basis: 15%;
+}
+
+/* subtle vertical separators (desktop only) */
+@media (min-width: 768px) {
+	.responsive-table .table-row .col + .col {
+		position: relative;
+	}
+	.responsive-table .table-row .col + .col::before {
+		content: '';
+		position: absolute;
+		left: -12px;
+		top: 12%;
+		width: 1px;
+		height: 76%;
+		background: rgba(0, 0, 0, 0.12);
+	}
+}
+
+/* badge for score/result */
+.badge {
+	display: inline-block;
+	padding: 6px 12px;
+	border-radius: 999px;
+	font-weight: 600;
+	line-height: 1;
+	background: rgba(255, 255, 255, 0.85);
+	color: #111;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06) inset;
+}
+.badge.score {
+	min-width: 58px;
+	text-align: center;
+}
+
+/* OPTIONAL: outcome coloring if you add .win/.lose/.draw on the row */
+.table-row.win .badge.score {
+	background: #d9f8e6;
+	color: #0b6b3a;
+}
+.table-row.lose .badge.score {
+	background: #ffe1e1;
+	color: #9a1c1c;
+}
+.table-row.draw .badge.score {
+	background: #fff5cc;
+	color: #6b550b;
+}
+
+/* mobile layout (uses your data-labels) */
+@media (max-width: 767px) {
+	.responsive-table {
+		width: min(90%, 1000px) !important;
+	}
+	.responsive-table .table-header {
+		display: none;
+	}
+
+	.responsive-table li {
+		display: block;
+		padding: 16px 18px;
+	}
+
+	.responsive-table .col {
+		display: flex;
+		width: 100%;
+		padding: 6px 0;
+	}
+	.responsive-table .col::before {
+		content: attr(data-label);
+		flex: 0 0 38%;
+		text-align: right;
+		padding-right: 12px;
+		font-weight: 600;
+		color: color-mix(in oklab, black 82%, var(--bg));
+		opacity: 0.9;
+	}
+
+	@supports not (color: color-mix(in oklab, black 82%, var(--bg))) {
+		.responsive-table .col::before {
+			color: #2a1f27;
+		}
+	}
+
+	/* remove desktop separators */
+	/* .responsive-table .table-row .col + .col::before { display: none; } */
 }

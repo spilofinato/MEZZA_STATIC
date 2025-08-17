@@ -1,21 +1,22 @@
 const aPhrases = [
-    "BOUNTY MERDA",
-    "CERTIFIED PEDOPHILES",
-    "2014-2025",
-    "NIENTE RISSE",
-    "BANDITI DAL CARNE E FUOCO",
-    "ETERNI SECONDI",
-    "FUORI LA MERDA",
-    "TÖLSÖ",
-    "LA PARTE DELLA TORRE ANCORA IN PIEDI",
-    "POLISCALVE MERDA",
-    "NON DICO CHE VINCEREMO MA ALMENO METTEREMO IN DIFFICOLTÀ GLI AVVERSARI",
-    "BOUNTY TORRE MERDI MERDA",
-    "HO VISTO LA PALLA",
-    "ABBIAMO SEGNATO CON LO SCHEMA DI FIFA",
-    "POLISCALVE MAMME CALDE",
-    "E CHI NON SALTA INSIEME A NOI COS'È?",
-    "🐺💪🏻",
+    // "BOUNTY MERDA",
+    // "CERTIFIED PEDOPHILES",
+    // "2014-2025",
+    // "NIENTE RISSE",
+    // "BANDITI DAL CARNE E FUOCO",
+    // "ETERNI SECONDI",
+    // "FUORI LA MERDA",
+    // "TÖLSÖ",
+    // "LA PARTE DELLA TORRE ANCORA IN PIEDI",
+    // "POLISCALVE MERDA",
+    // "NON DICO CHE VINCEREMO MA ALMENO METTEREMO IN DIFFICOLTÀ GLI AVVERSARI",
+    // "BOUNTY TORRE MERDI MERDA",
+    // "HO VISTO LA PALLA",
+    // "ABBIAMO SEGNATO CON LO SCHEMA DI FIFA",
+    // "POLISCALVE MAMME CALDE",
+    // "E CHI NON SALTA INSIEME A NOI COS'È?",
+    // "🐺💪🏻",
+    "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
 ];
 
 const headerh1 = document.querySelector(".header h1");
@@ -228,4 +229,31 @@ window.addEventListener("load", () => {
     setTimeout(() => {
         loadingScreen.remove();
     }, 1200);
+
+    document.querySelectorAll('.slide img').forEach(img => {
+        const url = img.currentSrc || img.src;
+        img.parentElement.style.setProperty('--bg', `url("${url}")`);
+        img.parentElement.style.background = 'none';
+        img.parentElement.style.setProperty('--has-bg', 1);
+        img.parentElement.style.setProperty('--bg-url', `url("${url}")`);
+        img.parentElement.style.cssText += `--bg-url:url("${url}")`;
+        img.parentElement.style.setProperty('--bg-url', `url("${url}")`);
+        img.parentElement.style.setProperty('--bg-url-raw', url);
+        img.parentElement.style.setProperty('--bg-url-quoted', `"${url}"`);
+        img.parentElement.style.setProperty('--bg-url-unquoted', url);
+        img.parentElement.style.setProperty('--bg-url-css', `url(${JSON.stringify(url)})`);
+        img.parentElement.style.setProperty('--bg-url-css2', `url("${url}")`);
+        img.parentElement.style.setProperty('--bg-url-css3', `url('${url}')`);
+        // final assignment for ::before
+        img.parentElement.style.setProperty('--bg-image', `url("${url}")`);
+        img.parentElement.dataset.bg = url;
+    });
+
+    document.querySelectorAll('.gallery .gallery-item.contain').forEach(card => {
+        const media = card.querySelector('img,video');
+        if (!media) return;
+        const url = media.currentSrc || media.src || media.poster;
+        if (url) card.style.setProperty('--bg-image', `url("${url}")`);
+    });
 });
+
