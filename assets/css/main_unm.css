@@ -10,15 +10,14 @@
 	overflow: hidden !important;
 	position: absolute;
 	transition: transform 0.5s ease-in-out;
-	will-change: transform;
 }
 
 .content[data-active='false'] {
-	transform: translate3d(100lvw, 0, 0);
+	transform: translateX(100lvw);
 }
 
 .content[data-active='almost'] {
-	transform: translate3d(-100lvw, 0, 0);
+	transform: translateX(-100lvw);
 }
 
 @media (max-width: 768px) {
@@ -259,7 +258,7 @@ textarea {
 	z-index: 9999;
 	left: 50%;
 	bottom: 2svh;
-	transform: translate3d(-50%, 0, 0);
+	transform: translateX(-50%);
 	background-color: black;
 	border-radius: 100%;
 	border: none;
@@ -271,11 +270,11 @@ textarea {
 }
 
 .nav-toggle:hover {
-	transform: translate3d(-50%, 0, 0) scale(1.1);
+	transform: translateX(-50%) scale(1.1);
 }
 
 .nav-toggle:active {
-	transform: translate3d(-50%, 0, 0) scale(0.95);
+	transform: translateX(-50%) scale(0.95);
 }
 
 .bg {
@@ -285,7 +284,7 @@ textarea {
 	z-index: 9998;
 	left: 50%;
 	bottom: 2svh;
-	transform: translate3d(-50%, 0, 0);
+	transform: translateX(-50%);
 	background-color: black;
 	border-radius: 100%;
 	transition: transform, background-color;
@@ -297,13 +296,13 @@ textarea {
 
 @keyframes pulse {
 	0% {
-		transform: translate3d(-50%, 0, 0) scale(1, 1);
+		transform: translateX(-50%) scale(1, 1);
 	}
 	50% {
 		opacity: 0.3;
 	}
 	100% {
-		transform: translate3d(-50%, 0, 0) scale(1.5);
+		transform: translateX(-50%) scale(1.5);
 		opacity: 0;
 	}
 }
@@ -312,7 +311,7 @@ textarea {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate3d(-50%, -50%, 0);
+	transform: translate(-50%, -50%);
 	color: #df81b3;
 	mix-blend-mode: difference;
 	opacity: 0;
@@ -331,12 +330,12 @@ textarea {
 
 body:not([data-nav='true']) > .nav-toggle:hover > .open {
 	opacity: 1;
-	transform: translate3d(-50%, -50%, 0) scale(1);
+	transform: translate(-50%, -50%) scale(1);
 }
 
 body[data-nav='true'] > .nav-toggle > .close {
 	opacity: 1;
-	transform: translate3d(-50%, -50%, 0) scale(1);
+	transform: translate(-50%, -50%) scale(1);
 }
 
 body[data-nav='true'] > .nav-toggle {
@@ -348,7 +347,7 @@ body[data-nav='true'] > .bg {
 }
 
 body[data-nav='true'] > main {
-	transform: translate3d(0, -50svh, 0);
+	transform: translateY(-50svh);
 }
 
 nav {
@@ -372,13 +371,12 @@ nav {
 	align-items: center;
 	gap: clamp(0rem, 2vw, 6rem);
 	padding: 0rem clamp(1rem, 2vw, 2rem);
-	transform: translate3d(0, 70%, 0) scale3d(0.1, 0.1, 0.1);
+	transform: translateY(70%) scale(0.1);
 	transition: transform, opacity;
 	transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
 	transition-duration: 0.4s;
 	opacity: 0;
 	overflow: hidden;
-	will-change: transform, opacity;
 }
 
 .nav-links > .nav-link {
@@ -416,7 +414,7 @@ nav {
 }
 
 body[data-nav='true'] > nav > .nav-links {
-	transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+	transform: translateY(0%) scale(1);
 	opacity: 1;
 }
 
@@ -466,6 +464,8 @@ body[data-nav='true'] > nav > .nav-links {
 	padding-bottom: 9svh;
 }
 
+/* Utility */
+
 .w-100 {
 	width: 100% !important;
 }
@@ -482,12 +482,14 @@ body[data-nav='true'] > nav > .nav-links {
 	width: 10% !important;
 }
 
+/* === Carousel polish (keeps your structure/behavior) ====================== */
 .carousel {
+	/* tokens */
 	--radius: 1rem;
 	--shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
 	--ring: 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
-	--edge-fade: 0px;
-	--bg: rgba(10, 12, 16, 0.6);
+	--edge-fade: 0px; /* gradient width at edges */
+	--bg: rgba(10, 12, 16, 0.6); /* letterbox fill behind contain media */
 
 	position: relative;
 	display: flex;
@@ -500,6 +502,7 @@ body[data-nav='true'] > nav > .nav-links {
 	isolation: isolate;
 }
 
+/* soft edge gradients (hint there’s more content) */
 .carousel::before,
 .carousel::after {
 	content: '';
@@ -526,9 +529,10 @@ body[data-nav='true'] > nav > .nav-links {
 	position: relative;
 	width: 100%;
 	transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-	will-change: transform;
+	will-change: transform; /* smoother JS-driven slides */
 }
 
+/* slides get a subtle ring + rounded corners */
 .slide {
 	float: left;
 	width: 100%;
@@ -560,6 +564,7 @@ body[data-nav='true'] > nav > .nav-links {
 	z-index: -1;
 }
 
+/* optional glossy overlay */
 .slide::after {
 	content: '';
 	position: absolute;
@@ -572,19 +577,20 @@ body[data-nav='true'] > nav > .nav-links {
 	);
 }
 
+/* media stays contain, but gets consistent height + letterboxing color */
 .slide img,
 .slide video {
 	object-fit: contain !important;
 	border-radius: var(--radius) !important;
 	width: 100%;
-	height: clamp(240px, 56vh, 720px);
+	height: clamp(240px, 56vh, 720px); /* responsive height */
 	display: block;
-	background: var(--bg);
+	background: var(--bg); /* behind transparent areas when contained */
 	transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s;
 	background: transparent;
-	will-change: transform, filter;
 }
 
+/* Ken Burns-lite on hover/focus (desktop only) */
 @media (hover: hover) and (pointer: fine) {
 	.slide:hover img,
 	.slide:hover video,
@@ -595,11 +601,13 @@ body[data-nav='true'] > nav > .nav-links {
 	}
 }
 
+/* tap/drag feedback while sliding via JS */
 .carousel-track:active .slide img,
 .carousel-track:active .slide video {
 	transform: scale(1.01);
 }
 
+/* light mode tweaks */
 @media (prefers-color-scheme: light) {
 	.carousel {
 		--shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
@@ -622,6 +630,7 @@ body[data-nav='true'] > nav > .nav-links {
 	}
 }
 
+/* accessibility: respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
 	.carousel-track,
 	.slide,
@@ -631,25 +640,31 @@ body[data-nav='true'] > nav > .nav-links {
 	}
 }
 
+/* ---- Gallery card styling only ---- */
 .gallery > .col > .gallery-item {
 	position: relative;
 	border-radius: 1rem !important;
 	overflow: hidden;
 
+	/* background + shadow */
 	background: rgba(20, 22, 28, 0.85);
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), 0 12px 24px rgba(0, 0, 0, 0.25);
 
+	/* subtle glass effect */
 	backdrop-filter: blur(6px) saturate(120%);
 	-webkit-backdrop-filter: blur(6px) saturate(120%);
 
-	padding: 0;
+	/* spacing */
+	padding: 0; /* let media fill card edge-to-edge */
 	margin: 0;
 
+	/* animation hooks */
 	transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s,
 		filter 0.35s;
 	will-change: transform;
 }
 
+/* glossy overlay */
 .gallery > .col > .gallery-item::after {
 	content: '';
 	position: absolute;
@@ -663,13 +678,15 @@ body[data-nav='true'] > nav > .nav-links {
 	mix-blend-mode: soft-light;
 }
 
+/* lift on hover (desktop only) */
 @media (hover: hover) and (pointer: fine) {
 	.gallery > .col > .gallery-item:hover {
-		transform: translate3d(0, -4px, 0) scale(1.02);
+		transform: translateY(-4px) scale(1.02);
 		box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3), 0 18px 36px rgba(0, 0, 0, 0.35);
 	}
 }
 
+/* media inside card fills properly */
 .gallery > .col > .gallery-item > img,
 .gallery > .col > .gallery-item > video {
 	display: block;
@@ -680,6 +697,7 @@ body[data-nav='true'] > nav > .nav-links {
 	transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/* optional zoom-in of media on hover */
 @media (hover: hover) and (pointer: fine) {
 	.gallery > .col > .gallery-item:hover > img,
 	.gallery > .col > .gallery-item:hover > video {
@@ -687,6 +705,7 @@ body[data-nav='true'] > nav > .nav-links {
 	}
 }
 
+/* ---- Responsive list-table facelift ---- */
 .responsive-table {
 	--radius: 14px;
 	--pad-x: 24px;
@@ -703,6 +722,7 @@ body[data-nav='true'] > nav > .nav-links {
 	list-style: none;
 }
 
+/* row base */
 .responsive-table li {
 	display: flex;
 	justify-content: space-between;
@@ -715,6 +735,7 @@ body[data-nav='true'] > nav > .nav-links {
 	box-shadow: 0 1px 0 var(--sep) inset, 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
+/* sticky header card */
 .responsive-table .table-header {
 	position: sticky;
 	top: 0;
@@ -732,11 +753,11 @@ body[data-nav='true'] > nav > .nav-links {
 	backdrop-filter: saturate(120%);
 }
 
+/* data rows */
 .responsive-table .table-row {
 	background: var(--row-bg);
 	transition: transform 0.2s ease, box-shadow 0.2s ease,
 		background-color 0.2s ease;
-	will-change: transform, box-shadow, background-color;
 }
 .responsive-table .table-row:nth-of-type(odd) {
 	background: var(--row-bg-alt);
@@ -744,9 +765,10 @@ body[data-nav='true'] > nav > .nav-links {
 .responsive-table .table-row:hover {
 	background: var(--row-hover) !important;
 	box-shadow: 0 1px 0 var(--sep) inset, 0 14px 28px rgba(0, 0, 0, 0.18);
-	transform: translate3d(0, -1px, 0);
+	transform: translateY(-1px);
 }
 
+/* cols */
 .responsive-table .col {
 	display: inline-flex;
 	align-items: center;
@@ -765,6 +787,7 @@ body[data-nav='true'] > nav > .nav-links {
 	flex-basis: 15%;
 }
 
+/* subtle vertical separators (desktop only) */
 @media (min-width: 768px) {
 	.responsive-table .table-row .col + .col {
 		position: relative;
@@ -780,6 +803,7 @@ body[data-nav='true'] > nav > .nav-links {
 	}
 }
 
+/* badge for score/result */
 .badge {
 	display: inline-block;
 	padding: 6px 12px;
@@ -795,6 +819,7 @@ body[data-nav='true'] > nav > .nav-links {
 	text-align: center;
 }
 
+/* OPTIONAL: outcome coloring if you add .win/.lose/.draw on the row */
 .table-row.win .badge.score {
 	background: #d9f8e6;
 	color: #0b6b3a;
@@ -808,6 +833,7 @@ body[data-nav='true'] > nav > .nav-links {
 	color: #6b550b;
 }
 
+/* mobile layout (uses your data-labels) */
 @media (max-width: 767px) {
 	.responsive-table {
 		width: min(90%, 1000px) !important;
@@ -841,4 +867,7 @@ body[data-nav='true'] > nav > .nav-links {
 			color: #2a1f27;
 		}
 	}
+
+	/* remove desktop separators */
+	/* .responsive-table .table-row .col + .col::before { display: none; } */
 }
