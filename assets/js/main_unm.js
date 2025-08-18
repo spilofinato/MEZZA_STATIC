@@ -16,6 +16,7 @@ const aPhrases = [
     "POLISCALVE MAMME CALDE",
     "E CHI NON SALTA INSIEME A NOI COS'È?",
     "🐺💪🏻",
+    "BBBBBBBBBBBBBBBBBBBBBB"
 ];
 
 const headerh1 = document.querySelector(".header h1");
