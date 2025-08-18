@@ -371,12 +371,13 @@ nav {
 	align-items: center;
 	gap: clamp(0rem, 2vw, 6rem);
 	padding: 0rem clamp(1rem, 2vw, 2rem);
-	transform: translateY(70%) scale(0.1);
+	transform: translate3d(0, 70%, 0) scale3d(0.1, 0.1, 0.1);
 	transition: transform, opacity;
 	transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
 	transition-duration: 0.4s;
 	opacity: 0;
 	overflow: hidden;
+	will-change: transform, opacity;
 }
 
 .nav-links > .nav-link {
@@ -414,7 +415,7 @@ nav {
 }
 
 body[data-nav='true'] > nav > .nav-links {
-	transform: translateY(0%) scale(1);
+	transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
 	opacity: 1;
 }
 
