@@ -1,1 +1,268 @@
-const aPhrases=["BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",],headerh1=document.querySelector(".header h1"),path="images/";let aMathRandoms=[];for(let i=0;i<64;i++)aMathRandoms.push(i);function shuffleCarouselItemsPosition(){let e=document.querySelector(".carousel"),t=document.querySelectorAll(".slide");shuffle(aMathRandoms);let l=document.createDocumentFragment();for(let a=0;a<t.length;a++)0==a&&t[aMathRandoms[a]].classList.add("active"),a<5?t[aMathRandoms[a]].firstElementChild.setAttribute("fetchpriority","high"):(t[aMathRandoms[a]].firstElementChild.setAttribute("fetchpriority","low"),t[aMathRandoms[a]].firstElementChild.loading="lazy"),l.appendChild(t[aMathRandoms[a]]);e.firstElementChild.appendChild(l)}function shuffleAndAddGalleryItems(){let e=document.createDocumentFragment(),t=document.createDocumentFragment(),l=document.createDocumentFragment(),a=document.querySelectorAll(".slide > img"),r=document.querySelectorAll(".slide > video"),n=document.querySelector(".gallery"),s=n.firstElementChild,B=s.nextElementSibling,d=B.nextElementSibling,o=[];a.forEach(e=>{o.push(e.cloneNode(!0))}),r.forEach(e=>{o.push(e.cloneNode(!0))}),shuffle(aMathRandoms);let c=0;for(let u=0;u<o.length/3;u++){let h=document.createElement("div");h.classList.add("gallery-item"),h.appendChild(o[aMathRandoms[u]]),e.appendChild(h),c=u}for(let m=c+1;m<o.length/3*2;m++){let f=document.createElement("div");f.classList.add("gallery-item"),f.appendChild(o[aMathRandoms[m]]),t.appendChild(f),c=m}for(let p=c+1;p<o.length;p++){let y=document.createElement("div");y.classList.add("gallery-item"),y.appendChild(o[aMathRandoms[p]]),l.appendChild(y)}s.appendChild(e),B.appendChild(t),d.appendChild(l)}function shuffle(e){let t=e.length;for(;0!=t;){let l=Math.floor(Math.random()*t);t--,[e[t],e[l]]=[e[l],e[t]]}}shuffle(aMathRandoms),document.addEventListener("DOMContentLoaded",()=>{shuffle(aPhrases),headerh1.innerHTML=aPhrases[0],headerh1.animate([{transform:"translateX(100lvw)"},{transform:"translateX(-100%)"}],{duration:1e4,iterations:1/0}),shuffleCarouselItemsPosition(),shuffleAndAddGalleryItems()});const eNavToggle=document.querySelector(".nav-toggle");function handleNavClick(e){document.body.dataset.nav="false";let t=document.querySelectorAll(".content[data-active]"),l=t.length,a=null;for(let r=0;r<l;r++)if("true"==t[r].dataset.active){a=t[r];break}if(e!=a.dataset.index){let n=document.querySelector(`.content[data-index="${e}"]`),s=0;if(e>a.dataset.index){a.dataset.active="almost";for(let B=parseInt(a.dataset.index)+1;B<parseInt(e);B++)setTimeout(()=>{t[B].dataset.active="almost"},100*B),s=B}else{a.dataset.active="false";for(let d=parseInt(e)+1;d<parseInt(a.dataset.index);d++)setTimeout(()=>{t[d].dataset.active="false"},100*d),s=d}setTimeout(()=>{n.dataset.active="true"},(s+1)*100)}}eNavToggle.addEventListener("click",()=>{document.body.dataset.nav="true"===document.body.dataset.nav?"false":"true"});const track=document.querySelector(".carousel-track"),slides=document.querySelectorAll(".slide"),totalSlides=slides.length;let index=0;setInterval(()=>{index=(index+1)%totalSlides,track.style.transform=`translateX(-${100*index}%)`},4e3),window.addEventListener("load",()=>{let e=document.querySelector(".loading-screen");e.animate([{opacity:1,transform:"scale(1) translateY(0)",filter:"blur(0px)"},{opacity:0,transform:"scale(1.1) translateY(-20px)",filter:"blur(4px)"}],{duration:1200,easing:"ease-in-out",fill:"forwards"}),setTimeout(()=>{e.remove()},1200),document.querySelectorAll(".slide img").forEach(e=>{let t=e.currentSrc||e.src;e.parentElement.style.setProperty("--bg",`url("${t}")`),e.parentElement.style.background="none",e.parentElement.style.setProperty("--has-bg",1),e.parentElement.style.setProperty("--bg-url",`url("${t}")`),e.parentElement.style.cssText+=`--bg-url:url("${t}")`,e.parentElement.style.setProperty("--bg-url",`url("${t}")`),e.parentElement.style.setProperty("--bg-url-raw",t),e.parentElement.style.setProperty("--bg-url-quoted",`"${t}"`),e.parentElement.style.setProperty("--bg-url-unquoted",t),e.parentElement.style.setProperty("--bg-url-css",`url(${JSON.stringify(t)})`),e.parentElement.style.setProperty("--bg-url-css2",`url("${t}")`),e.parentElement.style.setProperty("--bg-url-css3",`url('${t}')`),e.parentElement.style.setProperty("--bg-image",`url("${t}")`),e.parentElement.dataset.bg=t}),document.querySelectorAll(".gallery .gallery-item.contain").forEach(e=>{let t=e.querySelector("img,video");if(!t)return;let l=t.currentSrc||t.src||t.poster;l&&e.style.setProperty("--bg-image",`url("${l}")`)})});
+const aPhrases = [
+    // "BOUNTY MERDA",
+    // "CERTIFIED PEDOPHILES",
+    // "2014-2025",
+    // "NIENTE RISSE",
+    // "BANDITI DAL CARNE E FUOCO",
+    // "ETERNI SECONDI",
+    // "FUORI LA MERDA",
+    // "TÖLSÖ",
+    // "LA PARTE DELLA TORRE ANCORA IN PIEDI",
+    // "POLISCALVE MERDA",
+    // "NON DICO CHE VINCEREMO MA ALMENO METTEREMO IN DIFFICOLTÀ GLI AVVERSARI",
+    // "BOUNTY TORRE MERDI MERDA",
+    // "HO VISTO LA PALLA",
+    // "ABBIAMO SEGNATO CON LO SCHEMA DI FIFA",
+    // "POLISCALVE MAMME CALDE",
+    // "E CHI NON SALTA INSIEME A NOI COS'È?",
+    // "🐺💪🏻",
+    "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+];
+
+const headerh1 = document.querySelector(".header h1");
+
+const path = "images/";
+
+let aMathRandoms = [];
+
+for (let i = 0; i < 64; i++) {
+    aMathRandoms.push(i);
+}
+
+shuffle(aMathRandoms);
+
+document.addEventListener("DOMContentLoaded", () => {
+    shuffle(aPhrases);
+
+    headerh1.innerHTML = aPhrases[0];
+
+    headerh1.animate([{ transform: `translateX(100lvw)` }, { transform: `translateX(-100%)` }], {
+        duration: 10000,
+        iterations: Infinity,
+    });
+
+    shuffleCarouselItemsPosition();
+
+    shuffleAndAddGalleryItems();
+});
+
+function shuffleCarouselItemsPosition() {
+    const aCarousel = document.querySelector(".carousel");
+    let aCarouselItems = document.querySelectorAll(".slide");
+
+    shuffle(aMathRandoms);
+
+    let oFragment = document.createDocumentFragment();
+
+    for (let i = 0; i < aCarouselItems.length; i++) {
+        if (i == 0) {
+            aCarouselItems[aMathRandoms[i]].classList.add("active");
+        }
+
+        if (i < 5) {
+            aCarouselItems[aMathRandoms[i]].firstElementChild.setAttribute("fetchpriority", "high");
+        } else {
+            aCarouselItems[aMathRandoms[i]].firstElementChild.setAttribute("fetchpriority", "low");
+            aCarouselItems[aMathRandoms[i]].firstElementChild.loading = "lazy";
+        }
+
+        oFragment.appendChild(aCarouselItems[aMathRandoms[i]]);
+    }
+
+    aCarousel.firstElementChild.appendChild(oFragment);
+}
+
+function shuffleAndAddGalleryItems() {
+    let oFragmentCol1 = document.createDocumentFragment();
+    let oFragmentCol2 = document.createDocumentFragment();
+    let oFragmentCol3 = document.createDocumentFragment();
+    const aAllImagesInCarousel = document.querySelectorAll(".slide > img");
+    const aAllVideosInCarousel = document.querySelectorAll(".slide > video");
+    const oGallery = document.querySelector(".gallery");
+    const oGalleryColumn1 = oGallery.firstElementChild;
+    const oGalleryColumn2 = oGalleryColumn1.nextElementSibling;
+    const oGalleryColumn3 = oGalleryColumn2.nextElementSibling;
+
+    let aAllItemsInCarousel = [];
+
+    aAllImagesInCarousel.forEach((item) => {
+        aAllItemsInCarousel.push(item.cloneNode(true));
+    });
+
+    aAllVideosInCarousel.forEach((item) => {
+        aAllItemsInCarousel.push(item.cloneNode(true));
+    });
+
+    shuffle(aMathRandoms);
+
+    let lastI = 0;
+
+    for (let i = 0; i < aAllItemsInCarousel.length / 3; i++) {
+        const oGalleryItem = document.createElement("div");
+        oGalleryItem.classList.add("gallery-item");
+        oGalleryItem.appendChild(aAllItemsInCarousel[aMathRandoms[i]]);
+        oFragmentCol1.appendChild(oGalleryItem);
+
+        lastI = i;
+    }
+
+    for (let i = lastI + 1; i < aAllItemsInCarousel.length / 3 * 2; i++) {
+        const oGalleryItem = document.createElement("div");
+        oGalleryItem.classList.add("gallery-item");
+        oGalleryItem.appendChild(aAllItemsInCarousel[aMathRandoms[i]]);
+        oFragmentCol2.appendChild(oGalleryItem);
+
+        lastI = i;
+    }
+
+    for (let i = lastI + 1; i < aAllItemsInCarousel.length; i++) {
+        const oGalleryItem = document.createElement("div");
+        oGalleryItem.classList.add("gallery-item");
+        oGalleryItem.appendChild(aAllItemsInCarousel[aMathRandoms[i]]);
+        oFragmentCol3.appendChild(oGalleryItem);
+    }
+
+    oGalleryColumn1.appendChild(oFragmentCol1);
+    oGalleryColumn2.appendChild(oFragmentCol2);
+    oGalleryColumn3.appendChild(oFragmentCol3);
+}
+
+function shuffle(array) {
+    let currentIndex = array.length;
+
+    while (currentIndex != 0) {
+        let randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+}
+
+const eNavToggle = document.querySelector(".nav-toggle");
+
+eNavToggle.addEventListener("click", () => {
+    document.body.dataset.nav = document.body.dataset.nav === "true" ? "false" : "true";
+});
+
+function handleNavClick(index) {
+    document.body.dataset.nav = "false";
+
+    const aContainers = document.querySelectorAll(".content[data-active]");
+
+    const iNOfContainers = aContainers.length;
+
+    let aActiveContainer = null;
+
+    for (let i = 0; i < iNOfContainers; i++) {
+        if (aContainers[i].dataset.active == "true") {
+            aActiveContainer = aContainers[i];
+        }
+        aContainers[i].classList.remove("d-none");
+    }
+
+    if (index != aActiveContainer.dataset.index) {
+        const aIndexContainer = document.querySelector(`.content[data-index="${index}"]`);
+
+        let iCounter = 0;
+
+        if (index > aActiveContainer.dataset.index) {
+            aActiveContainer.dataset.active = "almost";
+
+            for (let i = parseInt(aActiveContainer.dataset.index) + 1; i < parseInt(index); i++) {
+                setTimeout(() => {
+                    aContainers[i].dataset.active = "almost";
+                }, i * 100);
+
+                iCounter = i;
+            }
+        } else {
+            aActiveContainer.dataset.active = "false";
+
+            for (let i = parseInt(index) + 1; i < parseInt(aActiveContainer.dataset.index); i++) {
+                setTimeout(() => {
+                    aContainers[i].dataset.active = "false";
+                }, i * 100);
+
+                iCounter = i;
+            }
+        }
+
+        for (let i = 0; i < iNOfContainers; i++) {
+            setTimeout(() => {
+                if (i !== index) {
+                    aContainers[i].classList.add("d-none");
+                }
+            }, (iCounter * 200) + 500);
+        }
+
+        setTimeout(() => {
+            aIndexContainer.dataset.active = "true";
+        }, (iCounter + 1) * 100);
+
+    }
+}
+
+const track = document.querySelector('.carousel-track');
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+let index = 0;
+
+setInterval(() => {
+    index = (index + 1) % totalSlides;
+    track.style.transform = `translateX(-${index * 100}%)`;
+}, 4000);
+
+window.addEventListener("load", () => {
+    const loadingScreen = document.querySelector(".loading-screen");
+
+    loadingScreen.animate(
+        [
+            {
+                opacity: 1,
+                transform: "scale(1) translateY(0)",
+                filter: "blur(0px)"
+            },
+            {
+                opacity: 0,
+                transform: "scale(1.1) translateY(-20px)",
+                filter: "blur(4px)"
+            }
+        ],
+        {
+            duration: 1200,
+            easing: "ease-in-out",
+            fill: "forwards"
+        }
+    );
+
+    setTimeout(() => {
+        loadingScreen.remove();
+    }, 1200);
+
+    document.querySelectorAll('.slide img').forEach(img => {
+        const url = img.currentSrc || img.src;
+        img.parentElement.style.setProperty('--bg', `url("${url}")`);
+        img.parentElement.style.background = 'none';
+        img.parentElement.style.setProperty('--has-bg', 1);
+        img.parentElement.style.setProperty('--bg-url', `url("${url}")`);
+        img.parentElement.style.cssText += `--bg-url:url("${url}")`;
+        img.parentElement.style.setProperty('--bg-url', `url("${url}")`);
+        img.parentElement.style.setProperty('--bg-url-raw', url);
+        img.parentElement.style.setProperty('--bg-url-quoted', `"${url}"`);
+        img.parentElement.style.setProperty('--bg-url-unquoted', url);
+        img.parentElement.style.setProperty('--bg-url-css', `url(${JSON.stringify(url)})`);
+        img.parentElement.style.setProperty('--bg-url-css2', `url("${url}")`);
+        img.parentElement.style.setProperty('--bg-url-css3', `url('${url}')`);
+        // final assignment for ::before
+        img.parentElement.style.setProperty('--bg-image', `url("${url}")`);
+        img.parentElement.dataset.bg = url;
+    });
+
+    document.querySelectorAll('.gallery .gallery-item.contain').forEach(card => {
+        const media = card.querySelector('img,video');
+        if (!media) return;
+        const url = media.currentSrc || media.src || media.poster;
+        if (url) card.style.setProperty('--bg-image', `url("${url}")`);
+    });
+});
+

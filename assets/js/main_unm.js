@@ -156,8 +156,8 @@ function handleNavClick(index) {
     for (let i = 0; i < iNOfContainers; i++) {
         if (aContainers[i].dataset.active == "true") {
             aActiveContainer = aContainers[i];
-            break;
         }
+        aContainers[i].classList.remove("d-none");
     }
 
     if (index != aActiveContainer.dataset.index) {
@@ -187,9 +187,18 @@ function handleNavClick(index) {
             }
         }
 
+        for (let i = 0; i < iNOfContainers; i++) {
+            setTimeout(() => {
+                if (i !== index) {
+                    aContainers[i].classList.add("d-none");
+                }
+            }, (iCounter * 200) + 500);
+        }
+
         setTimeout(() => {
             aIndexContainer.dataset.active = "true";
         }, (iCounter + 1) * 100);
+
     }
 }
 
