@@ -73,15 +73,10 @@ function shuffleCarouselItemsPosition() {
 }
 
 function shuffleAndAddGalleryItems() {
-    let oFragmentCol1 = document.createDocumentFragment();
-    let oFragmentCol2 = document.createDocumentFragment();
-    let oFragmentCol3 = document.createDocumentFragment();
     const aAllImagesInCarousel = document.querySelectorAll(".slide > img");
     const aAllVideosInCarousel = document.querySelectorAll(".slide > video");
     const oGallery = document.querySelector(".gallery");
-    const oGalleryColumn1 = oGallery.firstElementChild;
-    const oGalleryColumn2 = oGalleryColumn1.nextElementSibling;
-    const oGalleryColumn3 = oGalleryColumn2.nextElementSibling;
+    let oFragment = document.createDocumentFragment();
 
     let aAllItemsInCarousel = [];
 
@@ -97,34 +92,16 @@ function shuffleAndAddGalleryItems() {
 
     let lastI = 0;
 
-    for (let i = 0; i < aAllItemsInCarousel.length / 3; i++) {
+    for (let i = 0; i < aAllItemsInCarousel.length ; i++) {
         const oGalleryItem = document.createElement("div");
         oGalleryItem.classList.add("gallery-item");
         oGalleryItem.appendChild(aAllItemsInCarousel[aMathRandoms[i]]);
-        oFragmentCol1.appendChild(oGalleryItem);
+        oFragment.appendChild(oGalleryItem);
 
         lastI = i;
     }
 
-    for (let i = lastI + 1; i < aAllItemsInCarousel.length / 3 * 2; i++) {
-        const oGalleryItem = document.createElement("div");
-        oGalleryItem.classList.add("gallery-item");
-        oGalleryItem.appendChild(aAllItemsInCarousel[aMathRandoms[i]]);
-        oFragmentCol2.appendChild(oGalleryItem);
-
-        lastI = i;
-    }
-
-    for (let i = lastI + 1; i < aAllItemsInCarousel.length; i++) {
-        const oGalleryItem = document.createElement("div");
-        oGalleryItem.classList.add("gallery-item");
-        oGalleryItem.appendChild(aAllItemsInCarousel[aMathRandoms[i]]);
-        oFragmentCol3.appendChild(oGalleryItem);
-    }
-
-    oGalleryColumn1.appendChild(oFragmentCol1);
-    oGalleryColumn2.appendChild(oFragmentCol2);
-    oGalleryColumn3.appendChild(oFragmentCol3);
+    oGallery.appendChild(oFragment);
 }
 
 function shuffle(array) {
